@@ -6,7 +6,7 @@
 #    By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/26 13:43:21 by jlereffa          #+#    #+#              #
-#    Updated: 2017/07/29 16:52:40 by jlereffa         ###   ########.fr        #
+#    Updated: 2017/07/29 17:23:12 by jlereffa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,8 @@ LIBFT_PATH = libs/libft/
 
 ##FILES
 SRC_NAME =	main.c get_raw_standard_input_to_raw_lst.c find_s_into_other_s.c\
-			handle_raw_lst.c
+			handle_raw_lst.c init_t_filler_var.c\
+			extract_values_from_raw_to_var.c
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 LIB_NAME = -lft
