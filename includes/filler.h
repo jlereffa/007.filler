@@ -6,7 +6,7 @@
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/27 17:13:16 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/07/30 17:21:07 by jlereffa         ###   ########.fr       */
+/*   Updated: 2017/07/30 18:00:26 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,12 @@ struct 				s_filler_tmp
 	int				*map_height;
 	int				*map_lenght;
 	int				is_plateau;
+	int				has_cap_o;
+	int				has_o;
+	int				has_cap_x;
+	int				has_x;
+	int				x;
+	int				y;
 };
 
 typedef struct s_filler_raw t_filler_raw;
@@ -59,6 +65,7 @@ struct 				s_filler_var
 	char			player_token_to_overwrite;
 	char			ennemy_token;
 	char			ennemy_token_to_overwrite;
+	int				is_1_player_game;
 };
 
 t_filler_raw		*get_raw_standard_input_to_raw_lst(int fd);
