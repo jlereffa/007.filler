@@ -6,7 +6,7 @@
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/27 17:12:17 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/07/30 14:55:26 by jlereffa         ###   ########.fr       */
+/*   Updated: 2017/07/30 17:25:42 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,8 @@ int	main(void)
 	if (!(extract_values_from_raw_to_var(&v, raw)))
 		return (0);
 	del_raw(&raw);
+	if (!(v.t_piece = fill_t_piece(v.piece, v.t_piece)))
+		return (0);
+	
 	return (0);
 }

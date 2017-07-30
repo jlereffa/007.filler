@@ -6,7 +6,7 @@
 #    By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/26 13:43:21 by jlereffa          #+#    #+#              #
-#    Updated: 2017/07/29 17:23:12 by jlereffa         ###   ########.fr        #
+#    Updated: 2017/07/30 17:20:43 by jlereffa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,9 +23,9 @@ INC_LIBFT_PATH = libs/libft/includes/
 LIBFT_PATH = libs/libft/
 
 ##FILES
-SRC_NAME =	main.c get_raw_standard_input_to_raw_lst.c find_s_into_other_s.c\
-			handle_raw_lst.c init_t_filler_var.c\
-			extract_values_from_raw_to_var.c
+SRC_NAME =	main.c get_raw_standard_input_to_raw_lst.c\
+			init_t_filler_var.c del_raw.c extract_values_from_raw_to_var.c\
+			fill_t_piece.c
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 LIB_NAME = -lft
@@ -67,7 +67,21 @@ fclean: clean
 
 re: fclean all
 
+norm:
+	@echo "\x1b[35m\n.==================[ \x1b[0m\c"
+	@echo "\x1b[35;1mNormi-Check\x1b[0m\c"
+	@echo " \x1b[35m]==================.\x1b[31;1m"
+	@norminette $(INC_PATH) $(SRC_PATH) \
+	| tr "\n" "@" \
+	| sed -e "s/Norme: /$$/g" \
+	| tr "$$" "\n" \
+	| grep -e Error -e Warning \
+	| tr "@" "\n" \
+	| sed "N;$$!P;$$!D;$$d"
+	@echo "\x1b[0m\x1b[35m\c"
+	@echo ".___________________________________________________.\n\x1b[0m"
+
 libft:
 	@make -C $(LIBFT_PATH)
 
-.PHONY: libft all clean fclean re
+.PHONY: libft all clean fclean re norm

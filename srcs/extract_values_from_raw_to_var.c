@@ -6,7 +6,7 @@
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/29 17:13:09 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/07/30 14:55:23 by jlereffa         ###   ########.fr       */
+/*   Updated: 2017/07/30 17:18:20 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static char	*extract_map_line_from_raw_s(char *src, int map_lenght,
 	return (ptr);
 }
 
-static int	extract_map(char **map, t_filler_tmp *tmp,
+static char	**extract_map(char **map, t_filler_tmp *tmp,
 			t_filler_raw **raw)
 {
 	int		i;
@@ -64,7 +64,7 @@ static int	extract_map(char **map, t_filler_tmp *tmp,
 	{
 		if (!(map[i] = extract_map_line_from_raw_s((*raw)->s,
 			*(tmp->map_lenght), &(tmp->is_plateau))))
-			return (0);
+			return (NULL);
 		*raw = (*raw)->next;
 	}
 	map[i] = NULL;
@@ -74,10 +74,10 @@ static int	extract_map(char **map, t_filler_tmp *tmp,
 		write(3, map[i], ft_strlen(map[i]));
 		write(3, "\n", 1);
 	}
-	return (1);
+	return (map);
 }
 
-int	extract_values_from_raw_to_var(t_filler_var *v, t_filler_raw *raw)
+int			extract_values_from_raw_to_var(t_filler_var *v, t_filler_raw *raw)
 {
 	t_filler_tmp	tmp;
 
@@ -85,13 +85,13 @@ int	extract_values_from_raw_to_var(t_filler_var *v, t_filler_raw *raw)
 	tmp.map_height = &v->plateau_height;
 	tmp.map_lenght = &v->plateau_lenght;
 	tmp.is_plateau = 1;
-	if (!(extract_map(v->plateau, &tmp, &raw)))
+	if (!(v->plateau = extract_map(v->plateau, &tmp, &raw)))
 		return (0);
 	tmp.is_plateau = 0;
 	extract_dimensions(&v->piece_height, &v->piece_lenght, raw->s, &raw);
 	tmp.map_height = &v->piece_height;
 	tmp.map_lenght = &v->piece_lenght;
-	if (!(extract_map(v->piece, &tmp, &raw)))
+	if (!(v->piece = extract_map(v->piece, &tmp, &raw)))
 		return (0);
 	return (1);
 }

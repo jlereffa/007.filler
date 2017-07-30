@@ -6,13 +6,47 @@
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/29 15:13:39 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/07/29 17:06:07 by jlereffa         ###   ########.fr       */
+/*   Updated: 2017/07/30 17:20:57 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <filler.h>
 
-t_filler_raw	*get_raw_standard_input_to_raw_lst(int fd)
+static int			find_s_into_other_s(char *s1, char *s2)
+{
+	if (!s1 || !s2)
+		return (0);
+	while (*s1 && *s2)
+	{
+		if (*s1 != *s2)
+			return (0);
+		s1++;
+		s2++;
+	}
+	return (1);
+}
+
+static t_filler_raw	*handle_raw_lst(t_filler_raw *raw, char *content)
+{
+	if (!raw)
+	{
+		if (!(raw = (t_filler_raw*)malloc(sizeof(t_filler_raw))))
+			return (NULL);
+		raw->s = content;
+		raw->prev = NULL;
+		raw->next = NULL;
+		return (raw);
+	}
+	while (raw->next)
+		raw = raw->next;
+	if (!(raw->next = handle_raw_lst(raw->next, content)))
+		return (NULL);
+	raw->next->prev = raw;
+	raw = raw->next;
+	return (raw);
+}
+
+t_filler_raw		*get_raw_standard_input_to_raw_lst(int fd)
 {
 	char			*line;
 	t_filler_raw	*raw;
