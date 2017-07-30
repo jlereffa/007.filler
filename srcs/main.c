@@ -6,7 +6,7 @@
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/27 17:12:17 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/07/29 17:24:37 by jlereffa         ###   ########.fr       */
+/*   Updated: 2017/07/30 14:55:26 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,6 @@ int	main(void)
 	init_t_filler_var(&v);
 	if (!(extract_values_from_raw_to_var(&v, raw)))
 		return (0);
+	del_raw(&raw);
 	return (0);
 }

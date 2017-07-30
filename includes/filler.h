@@ -6,7 +6,7 @@
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/27 17:13:16 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/07/29 17:23:40 by jlereffa         ###   ########.fr       */
+/*   Updated: 2017/07/30 14:49:40 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,14 @@
 
 #include <libft.h>
 #include <unistd.h>
+
+typedef struct s_filler_tmp t_filler_tmp;
+struct 				s_filler_tmp
+{
+	int				*map_height;
+	int				*map_lenght;
+	int				is_plateau;
+};
 
 typedef struct s_filler_raw t_filler_raw;
 struct 				s_filler_raw
@@ -40,13 +48,14 @@ struct 				s_filler_piece
 typedef struct s_filler_var t_filler_var;
 struct 				s_filler_var
 {
-	char			**map;
-	int				map_height;
-	int				map_lenght;
+	char			**plateau;
+	int				plateau_height;
+	int				plateau_lenght;
 	char			**piece;
 	int				piece_height;
 	int				piece_lenght;
 	t_fillit_piece	*t_piece;
+	int				is_plateau;
 };
 
 t_filler_raw		*get_raw_standard_input_to_raw_lst(int fd);
