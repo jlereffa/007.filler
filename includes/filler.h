@@ -6,7 +6,7 @@
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/27 17:13:16 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/07/30 18:00:26 by jlereffa         ###   ########.fr       */
+/*   Updated: 2017/07/31 18:00:46 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,6 @@ struct 				s_filler_tmp
 	int				*map_height;
 	int				*map_lenght;
 	int				is_plateau;
-	int				has_cap_o;
-	int				has_o;
-	int				has_cap_x;
-	int				has_x;
-	int				x;
-	int				y;
 };
 
 typedef struct s_filler_raw t_filler_raw;
@@ -54,6 +48,7 @@ struct 				s_filler_piece
 typedef struct s_filler_var t_filler_var;
 struct 				s_filler_var
 {
+	int				loop_nb;
 	char			**plateau;
 	int				plateau_height;
 	int				plateau_lenght;
@@ -61,22 +56,25 @@ struct 				s_filler_var
 	int				piece_height;
 	int				piece_lenght;
 	t_filler_piece	*t_piece;
-	char			player_token;
-	char			player_token_to_overwrite;
-	char			ennemy_token;
-	char			ennemy_token_to_overwrite;
-	int				is_1_player_game;
+	char			player_token;//
+	char			ennemy_token;//
+	char			ennemy_token_to_chase;//
+	int				is_1_player_game;//
 };
 
-t_filler_raw		*get_raw_standard_input_to_raw_lst(int fd);
+void				deb_fd(char *s, int fd);//<= TO DEL
+
+void				determine_ai_token(t_filler_var *v, int fd);
 
 void				init_t_filler_var(t_filler_var *v);
 
+t_filler_raw		*get_raw_standard_input_to_raw_lst(int fd);
 int					extract_values_from_raw_to_var(t_filler_var *v,
 					t_filler_raw *raw);
-
-void				del_raw(t_filler_raw **raw);
-
 t_filler_piece		*fill_t_piece(char **piece, t_filler_piece *t_piece);
+
+void				del_and_set_to_null_raw(t_filler_raw **raw);
+void				del_and_set_to_null_map(char ***map);
+void				del_and_set_to_null_t_piece(t_filler_piece **t_piece);
 
 #endif

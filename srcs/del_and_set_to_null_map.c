@@ -1,33 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   determine_ai_token.c                               :+:      :+:    :+:   */
+/*   del_and_set_to_null_map.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/30 17:38:09 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/07/31 17:25:41 by jlereffa         ###   ########.fr       */
+/*   Created: 2017/07/31 16:27:27 by jlereffa          #+#    #+#             */
+/*   Updated: 2017/07/31 17:24:57 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <filler.h>
 
-void	determine_ai_token(t_filler_var *v, int fd)
+void	del_and_set_to_null_map(char ***map)
 {
-	char	*line;
-	char	*ptr;
-	int		player;
+	int	i;
 
-	line = NULL;
-	get_next_line(0, &line);
-	write(fd, line, ft_strlen(line));
-	write(fd, "\n", 1);
-	ptr = line;
-	while (*line != 'p')
-		line++;
-	player = ft_atoi(line + 1);
-	v->player_token = player == 1 ? 'O' : 'X';
-	v->ennemy_token = player == 1 ? 'X' : 'O';
-	v->ennemy_token_to_chase = player == 1 ? 'X' : 'O';
-	free(ptr);
+	i = 0;
+	while (*(map[i]))
+	{
+		free(*(map[i]));
+		i++;
+	}
+	free(*map);
+	*map = NULL;
 }

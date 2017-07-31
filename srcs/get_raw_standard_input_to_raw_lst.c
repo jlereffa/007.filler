@@ -6,25 +6,11 @@
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/29 15:13:39 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/07/30 17:20:57 by jlereffa         ###   ########.fr       */
+/*   Updated: 2017/07/31 18:02:26 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <filler.h>
-
-static int			find_s_into_other_s(char *s1, char *s2)
-{
-	if (!s1 || !s2)
-		return (0);
-	while (*s1 && *s2)
-	{
-		if (*s1 != *s2)
-			return (0);
-		s1++;
-		s2++;
-	}
-	return (1);
-}
 
 static t_filler_raw	*handle_raw_lst(t_filler_raw *raw, char *content)
 {
@@ -53,16 +39,24 @@ t_filler_raw		*get_raw_standard_input_to_raw_lst(int fd)
 
 	line = NULL;
 	raw = NULL;
-	while (!find_s_into_other_s(line, "Plateau"))
-		get_next_line(0, &line);
-	raw = handle_raw_lst(raw, line);
+	deb_fd("1_0", fd);
 	get_next_line(0, &line);
+	deb_fd("1_1", fd);
+	write(3, line, ft_strlen(line));
+	write(3, "\n", 1);
+	raw = handle_raw_lst(raw, line);
+	deb_fd("1_2", fd);
+	get_next_line(0, &line);
+	deb_fd("1_3", fd);
 	while (get_next_line(0, &line))
 	{
+		deb_fd("1_4", fd);
 		raw = handle_raw_lst(raw, line);
+		deb_fd("1_5", fd);
 		write(fd, line, ft_strlen(line));
 		write(fd, "\n", 1);
 	}
+	deb_fd("1_6", fd);
 	while (raw->prev)
 		raw = raw->prev;
 	while (raw->next)

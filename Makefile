@@ -6,7 +6,7 @@
 #    By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/26 13:43:21 by jlereffa          #+#    #+#              #
-#    Updated: 2017/07/30 17:56:10 by jlereffa         ###   ########.fr        #
+#    Updated: 2017/07/31 18:01:53 by jlereffa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,9 @@ LIBFT_PATH = libs/libft/
 ##FILES
 SRC_NAME =	main.c get_raw_standard_input_to_raw_lst.c\
 			extract_values_from_raw_to_var.c\
-			fill_t_piece.c
+			fill_t_piece.c init_t_filler_var.c\
+			del_and_set_to_null_raw.c del_and_set_to_null_map.c\
+			del_and_set_to_null_t_piece.c determine_ai_token.c deb_fd.c
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 LIB_NAME = -lft
