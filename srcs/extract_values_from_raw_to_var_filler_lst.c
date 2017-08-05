@@ -6,7 +6,7 @@
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/29 17:13:09 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/08/05 20:49:08 by jlereffa         ###   ########.fr       */
+/*   Updated: 2017/08/05 21:07:20 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,12 +79,12 @@ int			extract_values_from_raw_to_var_filler_lst(t_filler_var *v,
 	if (!(v->plateau = extract_map(v->plateau, &tmp, &raw)))
 		return (0);
 	tmp.is_plateau = 0;
-	extract_dimensions(&v->piece_height, &v->piece_lenght, raw->s, &raw);
-	tmp.map_height = &v->piece_height;
-	tmp.map_lenght = &v->piece_lenght;
-	if (!(v->piece = extract_map(v->piece, &tmp, &raw)))
+	extract_dimensions(&v->token_map_height, &v->token_map_lenght, raw->s, &raw);
+	tmp.map_height = &v->token_map_height;
+	tmp.map_lenght = &v->token_map_lenght;
+	if (!(v->token_map = extract_map(v->token_map, &tmp, &raw)))
 		return (0);
-	if (!(v->t_piece = fill_t_piece(v->piece, v->t_piece)))
+	if (!(v->token_to_place = fill_token_to_place(v->token_map, v->token_to_place)))
 		return (0);
 	return (1);
 }

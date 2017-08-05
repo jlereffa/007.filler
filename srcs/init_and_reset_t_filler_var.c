@@ -6,7 +6,7 @@
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/31 16:32:44 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/08/05 20:45:17 by jlereffa         ###   ########.fr       */
+/*   Updated: 2017/08/05 20:59:24 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	first_init_t_filler_var(t_filler_var *v)
 
 void	init_and_reset_t_filler_var(t_filler_var *v)
 {
-	if (v->loop_nb < 0)
+	if (!v->loop_nb)
 		first_init_t_filler_var(v);
 	else
 	{

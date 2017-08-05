@@ -6,7 +6,7 @@
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/27 17:12:17 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/08/05 20:45:52 by jlereffa         ###   ########.fr       */
+/*   Updated: 2017/08/05 21:03:16 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int			main(void)
 	if ((fd = open("trace", O_RDWR)) < 0)//TO DELL
 		return (write(1, "fd error\n", 9));//TO DEL
 
-	v.loop_nb = -1;
+	v.loop_nb = 0;
 	if (!(determine_players_token(&v)))
 		return (0);
 	while (1)
@@ -31,9 +31,9 @@ int			main(void)
 		init_and_reset_t_filler_var(&v);
 		if (!(raw = get_raw_standard_input_to_t_filler_raw()))
 			return (0);
-		if (!(extract_values_from_t_filler_raw_to_t_filler_var(&v, raw)))
+		if (!(extract_values_from_raw_to_var_filler_lst(&v, raw)))
 			return (0);
-		if (v->loop_nb == 1 && v->player_token == 'O' &&
+		if (v->loop_nb == 2 && v->player_token == 'O' &&
 			(!(find_if_1_player_game(v))))
 			v->enemy_token_to_chase = 'x';
 		determine_and_give_answer(&v);
