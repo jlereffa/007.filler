@@ -1,42 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   del_and_set_to_null_t_piece.c                      :+:      :+:    :+:   */
+/*   del_and_set_to_null_t_filler_token.c               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/31 16:28:52 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/08/05 11:55:19 by jlereffa         ###   ########.fr       */
+/*   Updated: 2017/08/05 19:59:34 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <filler.h>
 
-void	del_and_set_to_null_t_piece(t_filler_piece **t_piece)
+void	del_and_set_to_null_t_filler_token(t_filler_token **token)
 {
-	t_filler_piece	*tmp;
+	t_filler_token	*tmp;
 
-	while (*t_piece)
+	while (*token)
 	{
-		tmp = *t_piece;
-		if ((*t_piece)->prev && (*t_piece)->next)
+		tmp = *token;
+		if ((*token)->prev && (*token)->next)
 		{
-			(*t_piece)->next->prev = (*t_piece)->prev;
-			(*t_piece)->prev->next = (*t_piece)->next;
-			*t_piece = (*t_piece)->prev;
+			(*token)->next->prev = (*token)->prev;
+			(*token)->prev->next = (*token)->next;
+			*token = (*token)->prev;
 		}
-		else if ((*t_piece)->prev && !(*t_piece)->next)
+		else if ((*token)->prev && !(*token)->next)
 		{
-			(*t_piece)->prev->next = NULL;
-			*t_piece = (*t_piece)->prev;
+			(*token)->prev->next = NULL;
+			*token = (*token)->prev;
 		}
-		else if (!(*t_piece)->prev && (*t_piece)->next)
+		else if (!(*token)->prev && (*token)->next)
 		{
-			(*t_piece)->next->prev = NULL;
-			*t_piece = (*t_piece)->next;
+			(*token)->next->prev = NULL;
+			*token = (*token)->next;
 		}
 		else
-			*t_piece = NULL;
+			*token = NULL;
 		free(tmp);
  	}
 }

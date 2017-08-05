@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   del_and_set_to_null_map.c                          :+:      :+:    :+:   */
+/*   determine_players_token.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/31 16:27:27 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/08/02 14:52:52 by jlereffa         ###   ########.fr       */
+/*   Created: 2017/07/30 17:38:09 by jlereffa          #+#    #+#             */
+/*   Updated: 2017/08/05 20:44:28 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <filler.h>
 
-void	del_and_set_to_null_map(char ***map)
+int	determine_players_token(t_filler_var *v)
 {
-	int	i;
+	char	*line;
+	char	*ptr;
+	int		player;
 
-	i = 0;
-	while (*(map[i]))
-	{
-		free(*(map[i]));
-		i++;
-	}
-	free(*map);
-	*map = NULL;
+	if ((get_next_line(0, &line)) == -1)
+		return (0);
+	ptr = line;
+	while (*line != '1' && *line != '2')
+		line++;
+	player = ft_atoi(line);
+	v->player_token = player == 1 ? 'O' : 'X';
+	v->enemy_token = player == 1 ? 'X' : 'O';
+	v->enemy_token_to_chase = player == 1 ? 'X' : 'o';
+	free(ptr);
+	return (1);
 }

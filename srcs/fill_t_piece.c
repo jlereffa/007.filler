@@ -6,35 +6,14 @@
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/30 16:31:09 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/08/05 12:01:54 by jlereffa         ###   ########.fr       */
+/*   Updated: 2017/08/05 19:34:34 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <filler.h>
 
-static t_filler_piece	*handle_t_piece_lst(t_filler_piece *t_piece, int x,
-						int y)
-{
-	if (!t_piece)
-	{
-		if (!(t_piece = (t_filler_piece*)malloc(sizeof(t_filler_piece))))
-			return (NULL);
-		t_piece->x = x;
-		t_piece->y = y;
-		t_piece->prev = NULL;
-		t_piece->next = NULL;
-		return (t_piece);
-	}
-	while (t_piece->next)
-		t_piece = t_piece->next;
-	if (!(t_piece->next = handle_t_piece_lst(t_piece->next, x, y)))
-		return (NULL);
-	t_piece->next->prev = t_piece;
-	t_piece = t_piece->next;
-	return (t_piece);
-}
-
-t_filler_piece			*fill_t_piece(char **piece, t_filler_piece *t_piece)
+t_filler_token			*fill_token_to_place(char **token_map,
+						t_filler_token *token_to_place)
 {
 	int	x;
 	int	y;
@@ -42,13 +21,13 @@ t_filler_piece			*fill_t_piece(char **piece, t_filler_piece *t_piece)
 
 	x = 0;
 	y = 0;
-	while (piece[x])
+	while (token[x])
 	{
-		while (piece[x][y])
+		while (token[x][y])
 		{
-			if (piece[x][y] == '*')
+			if (token[x][y] == '*')
 			{
-				if (!(t_piece = handle_t_piece_lst(t_piece, x, y)))
+				if (!(token_to_place = handle_t_token_lst(token_to_place, x, y)))
 					return (NULL);
 			}
 			y++;
@@ -56,9 +35,9 @@ t_filler_piece			*fill_t_piece(char **piece, t_filler_piece *t_piece)
 		x++;
 		y = 0;
 	}
-	while (t_piece->prev)
-		t_piece = t_piece->prev;
-	tmp = t_piece;//TO DELL
+	while (token_to_place->prev)
+		token_to_place = token_to_place->prev;
+	tmp = token_to_place;//TO DELL
 	while (tmp)//TO DEL
 	{
 		ft_putstr_fd("piece : x{", 2);
@@ -68,5 +47,5 @@ t_filler_piece			*fill_t_piece(char **piece, t_filler_piece *t_piece)
 		ft_putendl_fd("}", 2);
 		tmp = tmp->next;
 	}
-	return (t_piece);
+	return (token_to_place);
 }

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   del_and_set_to_null_raw.c                          :+:      :+:    :+:   */
+/*   del_and_set_to_null_t_filler_raw.c                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/31 16:26:50 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/07/31 16:31:34 by jlereffa         ###   ########.fr       */
+/*   Updated: 2017/08/05 20:15:12 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <filler.h>
 
-void	del_and_set_to_null_raw(t_filler_raw **raw)
+void	del_and_set_to_null_t_filler_raw(t_filler_raw **raw)
 {
 	t_filler_raw	*tmp;
 

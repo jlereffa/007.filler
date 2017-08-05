@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   extract_values_from_raw_to_var.c                   :+:      :+:    :+:   */
+/*   extract_values_from_raw_to_var_filler_lst.c        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/29 17:13:09 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/08/05 12:05:29 by jlereffa         ###   ########.fr       */
+/*   Updated: 2017/08/05 20:49:08 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,8 @@ static char	**extract_map(char **map, t_filler_tmp *tmp,
 	return (map);
 }
 
-int			extract_values_from_raw_to_var(t_filler_var *v, t_filler_raw *raw)
+int			extract_values_from_raw_to_var_filler_lst(t_filler_var *v,
+			t_filler_raw *raw)
 {
 	t_filler_tmp	tmp;
 

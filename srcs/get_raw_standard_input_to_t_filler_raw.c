@@ -6,13 +6,13 @@
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/29 15:13:39 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/08/05 11:54:32 by jlereffa         ###   ########.fr       */
+/*   Updated: 2017/08/05 19:44:36 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <filler.h>
 
-static t_filler_raw	*handle_raw_lst(t_filler_raw *raw, char *content)
+static t_filler_raw	*handle_t_filler_raw(t_filler_raw *raw, char *content)
 {
 	if (!raw)
 	{
@@ -25,7 +25,7 @@ static t_filler_raw	*handle_raw_lst(t_filler_raw *raw, char *content)
 	}
 	while (raw->next)
 		raw = raw->next;
-	if (!(raw->next = handle_raw_lst(raw->next, content)))
+	if (!(raw->next = handle_t_filler_raw(raw->next, content)))
 		return (NULL);
 	raw->next->prev = raw;
 	raw = raw->next;
@@ -50,14 +50,14 @@ static int			handle_x_loop(int loop_nb, t_filler_raw **raw)
 	{
 		if ((get_next_line(0, &line) == -1))
 			return (0);
-		if (!(*raw = handle_raw_lst(*raw, line)))
+		if (!(*raw = handle_t_filler_raw(*raw, line)))
 			return (0);
 		i++;
 	}
 	return (1);
 }
 
-t_filler_raw		*get_raw_standard_input_to_raw_lst()
+t_filler_raw		*get_raw_standard_input_to_t_filler_raw(void)
 {
 	char			*line;
 	int				loop_nb;
@@ -68,7 +68,7 @@ t_filler_raw		*get_raw_standard_input_to_raw_lst()
 	if ((get_next_line(0, &line) == -1))
 		return (NULL);
 	loop_nb = get_loop_nb(line);
-	if (!(raw = handle_raw_lst(raw, line)))
+	if (!(raw = handle_t_filler_raw(raw, line)))
 		return (NULL);
 	if ((get_next_line(0, &line) == -1))
 		return (NULL);
@@ -76,7 +76,7 @@ t_filler_raw		*get_raw_standard_input_to_raw_lst()
 	handle_x_loop(loop_nb, &raw);
 	if ((get_next_line(0, &line) == -1))
 		return (NULL);
-	if (!(raw = handle_raw_lst(raw, line)))
+	if (!(raw = handle_t_filler_raw(raw, line)))
 		return (NULL);
 	loop_nb = get_loop_nb(line);
 	handle_x_loop(loop_nb, &raw);
