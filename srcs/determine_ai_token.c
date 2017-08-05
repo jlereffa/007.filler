@@ -6,7 +6,7 @@
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/30 17:38:09 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/08/05 11:52:03 by jlereffa         ###   ########.fr       */
+/*   Updated: 2017/08/05 16:17:15 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ int	determine_ai_token(t_filler_var *v)
 		line++;
 	player = ft_atoi(line);
 	v->player_token = player == 1 ? 'O' : 'X';
-	v->ennemy_token = player == 1 ? 'X' : 'O';
-	v->ennemy_token_to_chase = player == 1 ? 'X' : 'O';
+	v->enemy_token = player == 1 ? 'X' : 'O';
+	v->enemy_token_to_chase = player == 1 ? 'X' : 'O';
 	free(ptr);
 	return (1);
 }

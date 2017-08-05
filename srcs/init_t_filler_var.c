@@ -6,7 +6,7 @@
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/31 16:32:44 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/07/31 17:45:48 by jlereffa         ###   ########.fr       */
+/*   Updated: 2017/08/05 17:40:32 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,10 @@ void	init_t_filler_var(t_filler_var *v)
 		del_and_set_to_null_map(&v->plateau);
 		del_and_set_to_null_map(&v->piece);
 		del_and_set_to_null_t_piece(&v->t_piece);
+		if (!v->is_1_player_game)
+			v->enemy_token_to_chase = v->player_token == 'O' ? 'x' : 'o';
+		else
+			v->enemy_token_to_chase = 'X';
 	}
 	else
 		v->loop_nb++;
@@ -29,7 +33,5 @@ void	init_t_filler_var(t_filler_var *v)
 	v->piece_height = 0;
 	v->piece_lenght = 0;
 	v->t_piece = NULL;
-	v->player_token = 0;
-	v->ennemy_token = 0;
-	v->ennemy_token_to_chase = 0;
+	v->enemy_token_is_found = 0;
 }

@@ -6,7 +6,7 @@
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/27 17:13:16 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/08/02 17:17:43 by jlereffa         ###   ########.fr       */
+/*   Updated: 2017/08/05 17:38:59 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@
 
 #include <libft.h>
 #include <unistd.h>
+
+# define E_COORD_X v->enemy_token_to_chase_coord_x
+# define E_COORD_Y v->enemy_token_to_chase_coord_y
 
 typedef struct s_filler_tmp t_filler_tmp;
 struct 				s_filler_tmp
@@ -57,14 +60,18 @@ struct 				s_filler_var
 	int				piece_lenght;
 	t_filler_piece	*t_piece;
 	char			player_token;//
-	char			ennemy_token;//
-	char			ennemy_token_to_chase;//
+	char			enemy_token;//
+	char			enemy_token_to_chase;//
+	int				enemy_token_is_found;
+	int				enemy_token_to_chase_coord_x;
+	int				enemy_token_to_chase_coord_y;
 	int				is_1_player_game;//
 };
 
 void				deb_e(char *s);//<= TO DEL
 
 int					determine_ai_token(t_filler_var *v);
+int					determine_and_give_answer(t_filler_var *v);
 
 void				init_t_filler_var(t_filler_var *v);
 
