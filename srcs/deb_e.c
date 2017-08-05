@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   deb_fd.c                                           :+:      :+:    :+:   */
+/*   deb_e.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/31 17:29:41 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/07/31 18:01:42 by jlereffa         ###   ########.fr       */
+/*   Updated: 2017/08/02 16:26:20 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <filler.h>
 
-void	deb_fd(char *s, int fd)
+void	deb_e(char *s)
 {
-	write(fd, "DEBUG : ", 8);
+	write(2, "\033[1;34mDEBUG : ", ft_strlen("\033[1;34mDEBUG : "));
 	while (*s)
 	{
-		write(fd, s, 1);
+		write(2, s, 1);
 		s++;
 	}
-	write(fd, "\n", 1);
+	write(2, "\n\033[0m", ft_strlen("\n\033[0m"));
 }

@@ -6,7 +6,7 @@
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/29 15:13:39 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/07/31 18:02:26 by jlereffa         ###   ########.fr       */
+/*   Updated: 2017/08/05 11:54:32 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,44 +32,61 @@ static t_filler_raw	*handle_raw_lst(t_filler_raw *raw, char *content)
 	return (raw);
 }
 
-t_filler_raw		*get_raw_standard_input_to_raw_lst(int fd)
+static int	get_loop_nb(char *s)
+{
+	while (*s && *s != ' ')
+		s++;
+	s++;
+	return (ft_atoi(s));
+}
+
+static int			handle_x_loop(int loop_nb, t_filler_raw **raw)
+{
+	char	*line;
+	int		i;
+
+	i = 0;
+	while (i < loop_nb)
+	{
+		if ((get_next_line(0, &line) == -1))
+			return (0);
+		if (!(*raw = handle_raw_lst(*raw, line)))
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+t_filler_raw		*get_raw_standard_input_to_raw_lst()
 {
 	char			*line;
+	int				loop_nb;
 	t_filler_raw	*raw;
+	t_filler_raw	*tmp;
 
-	line = NULL;
 	raw = NULL;
-	deb_fd("1_0", fd);
-	get_next_line(0, &line);
-	deb_fd("1_1", fd);
-	write(3, line, ft_strlen(line));
-	write(3, "\n", 1);
-	raw = handle_raw_lst(raw, line);
-	deb_fd("1_2", fd);
-	get_next_line(0, &line);
-	deb_fd("1_3", fd);
-	while (get_next_line(0, &line))
-	{
-		deb_fd("1_4", fd);
-		raw = handle_raw_lst(raw, line);
-		deb_fd("1_5", fd);
-		write(fd, line, ft_strlen(line));
-		write(fd, "\n", 1);
-	}
-	deb_fd("1_6", fd);
+	if ((get_next_line(0, &line) == -1))
+		return (NULL);
+	loop_nb = get_loop_nb(line);
+	if (!(raw = handle_raw_lst(raw, line)))
+		return (NULL);
+	if ((get_next_line(0, &line) == -1))
+		return (NULL);
+	free(line);
+	handle_x_loop(loop_nb, &raw);
+	if ((get_next_line(0, &line) == -1))
+		return (NULL);
+	if (!(raw = handle_raw_lst(raw, line)))
+		return (NULL);
+	loop_nb = get_loop_nb(line);
+	handle_x_loop(loop_nb, &raw);
 	while (raw->prev)
 		raw = raw->prev;
-	while (raw->next)
+	tmp = raw;
+	while (tmp)
 	{
-		write(fd, "raw->content : {", 16);
-		write(fd, raw->s, ft_strlen(raw->s));
-		write(fd, "}\n", 2);
-		raw = raw->next;
+		ft_putendl_fd(tmp->s, 2);
+		tmp = tmp->next;
 	}
-	write(fd, "raw->content : {", 16);
-	write(fd, raw->s, ft_strlen(raw->s));
-	write(fd, "}\n", 2);
-	while (raw->prev)
-		raw = raw->prev;
 	return (raw);
 }

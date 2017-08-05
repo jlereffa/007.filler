@@ -6,7 +6,7 @@
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/29 17:13:09 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/07/30 17:18:20 by jlereffa         ###   ########.fr       */
+/*   Updated: 2017/08/05 12:05:29 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,6 @@ static void	extract_dimensions(int *map_height, int *map_lenght, char *s,
 		s++;
 	s++;
 	*map_lenght = ft_atoi(s);
-	ft_putnbr_fd(*map_height, 3);
-	write(3, "\n", 1);
-	ft_putnbr_fd(*map_lenght, 3);
-	write(3, "\n", 1);
 	*raw = (*raw)->next;
 }
 
@@ -68,12 +64,6 @@ static char	**extract_map(char **map, t_filler_tmp *tmp,
 		*raw = (*raw)->next;
 	}
 	map[i] = NULL;
-	i = -1;
-	while (++i < *(tmp->map_height))
-	{
-		write(3, map[i], ft_strlen(map[i]));
-		write(3, "\n", 1);
-	}
 	return (map);
 }
 
@@ -92,6 +82,8 @@ int			extract_values_from_raw_to_var(t_filler_var *v, t_filler_raw *raw)
 	tmp.map_height = &v->piece_height;
 	tmp.map_lenght = &v->piece_lenght;
 	if (!(v->piece = extract_map(v->piece, &tmp, &raw)))
+		return (0);
+	if (!(v->t_piece = fill_t_piece(v->piece, v->t_piece)))
 		return (0);
 	return (1);
 }
