@@ -6,13 +6,13 @@
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/05 20:40:40 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/08/05 20:40:54 by jlereffa         ###   ########.fr       */
+/*   Updated: 2017/08/06 09:56:21 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <filler.h>
 
-void	find_if_1_player_game(t_filler_var *v)
+int	find_if_1_player_game(t_filler_var *v)
 {
 	int	i;
 	int	j;
@@ -23,7 +23,7 @@ void	find_if_1_player_game(t_filler_var *v)
 	{
 		while (v->plateau[i][j])
 		{
-			if (v->plateau == 'x')
+			if (v->plateau[i][j] == 'x')
 				return (0);
 			j++;
 		}

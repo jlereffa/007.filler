@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   extract_values_from_raw_to_var_filler_lst.c        :+:      :+:    :+:   */
+/*   extract_values_from_raw_lst_to_var_lst.c           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/29 17:13:09 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/08/05 21:07:20 by jlereffa         ###   ########.fr       */
+/*   Updated: 2017/08/06 10:04:02 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ static char	**extract_map(char **map, t_filler_tmp *tmp,
 	return (map);
 }
 
-int			extract_values_from_raw_to_var_filler_lst(t_filler_var *v,
+int			extract_values_from_raw_lst_to_var_lst(t_filler_var *v,
 			t_filler_raw *raw)
 {
 	t_filler_tmp	tmp;
@@ -84,7 +84,7 @@ int			extract_values_from_raw_to_var_filler_lst(t_filler_var *v,
 	tmp.map_lenght = &v->token_map_lenght;
 	if (!(v->token_map = extract_map(v->token_map, &tmp, &raw)))
 		return (0);
-	if (!(v->token_to_place = fill_token_to_place(v->token_map, v->token_to_place)))
+	if (!(v->to_place = fill_token_to_place(v->token_map, v->to_place)))
 		return (0);
 	return (1);
 }

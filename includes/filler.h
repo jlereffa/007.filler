@@ -6,7 +6,7 @@
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/27 17:13:16 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/08/05 21:08:44 by jlereffa         ###   ########.fr       */
+/*   Updated: 2017/08/06 11:10:01 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 //
 #include <fcntl.h>
+# define DEB deb_i(__FILE__, __LINE__);
 //
 
 #include <libft.h>
@@ -39,13 +40,13 @@ struct 				s_filler_raw
 	t_filler_raw	*next;
 };
 
-typedef struct s_filler_piece t_filler_piece;
-struct 				s_filler_piece
+typedef struct s_filler_token t_filler_token;
+struct 				s_filler_token
 {
 	int				x;
 	int				y;
-	t_filler_piece	*prev;
-	t_filler_piece	*next;
+	t_filler_token	*prev;
+	t_filler_token	*next;
 };
 
 typedef struct s_filler_var t_filler_var;
@@ -58,7 +59,7 @@ struct 				s_filler_var
 	char			**token_map;//NULL first turn then reset [OK]
 	int				token_map_height;//0 every turn [OK]
 	int				token_map_lenght;//0 every turn [OK]
-	t_filler_token	*token_to_place;//NULL first turn then reset [OK]
+	t_filler_token	*to_place;//NULL first turn then reset [OK]
 	char			player_token;//init once then never touched again [OK]
 	int				player_token_is_found;//0 every turn [OK]
 	char			enemy_token;//init once then never touched again [OK]
@@ -70,20 +71,22 @@ struct 				s_filler_var
 };
 
 void				deb_e(char *s);//<= TO DEL
+void				deb_i(char *file, int line);
 
 int					determine_players_token(t_filler_var *v);//[OK]
-int					determine_and_give_answer(t_filler_var *v);
+//int					determine_and_give_answer(t_filler_var *v);
 
-void				init_and_reset_t_filler_var(t_filler_var *v);//[OK]
+void				init_and_reset_var(t_filler_var *v);//[OK]
 
-t_filler_raw		*get_raw_standard_input_to_t_filler_raw(void);
-int					extract_values_from_raw_to_var_filler_lst(t_filler_var *v,
+t_filler_raw		*get_raw_standard_input_to_raw_lst(void);
+int					extract_values_from_raw_lst_to_var_lst(t_filler_var *v,
 					t_filler_raw *raw);
-t_filler_token		*fill_token_to_place(char **token, t_filler_token *token);
-void				find_if_1_player_game(t_filler_var *v);
+t_filler_token		*fill_token_to_place(char **token_map,
+					t_filler_token *to_place);
+int					find_if_1_player_game(t_filler_var *v);
 
-t_filler_raw		*set_t_filler_raw(t_filler_raw *raw, char *content)
-t_filler_token		*set_t_filler_token(t_filler_token *token);
+t_filler_raw		*set_t_filler_raw(t_filler_raw *raw, char *content);
+t_filler_token		*set_t_filler_token(t_filler_token *token, int x, int y);
 
 void				del_and_set_to_null_t_filler_raw(t_filler_raw **raw);
 void				del_and_set_to_null_array_table(char ***array_table);

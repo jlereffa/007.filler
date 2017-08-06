@@ -6,28 +6,28 @@
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/30 16:31:09 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/08/05 20:51:47 by jlereffa         ###   ########.fr       */
+/*   Updated: 2017/08/06 10:04:10 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <filler.h>
 
-t_filler_token			*fill_token_to_place(char **token_map,
-						t_filler_token *token_to_place)
+t_filler_token	*fill_token_to_place(char **token_map,
+				t_filler_token *to_place)
 {
 	int	x;
 	int	y;
-	t_filler_piece *tmp;//TO DEL
+	t_filler_token *tmp;//TO DEL
 
 	x = 0;
 	y = 0;
-	while (token[x])
+	while (token_map[x])
 	{
-		while (token[x][y])
+		while (token_map[x][y])
 		{
-			if (token[x][y] == '*')
+			if (token_map[x][y] == '*')
 			{
-				if (!(token_to_place = handle_t_token_lst(token_to_place, x, y)))
+				if (!(to_place = set_t_filler_token(to_place, x, y)))
 					return (NULL);
 			}
 			y++;
@@ -35,9 +35,9 @@ t_filler_token			*fill_token_to_place(char **token_map,
 		x++;
 		y = 0;
 	}
-	while (token_to_place->prev)
-		token_to_place = token_to_place->prev;
-	tmp = token_to_place;//TO DELL
+	while (to_place->prev)
+		to_place = to_place->prev;
+	tmp = to_place;//TO DELL
 	while (tmp)//TO DEL
 	{
 		ft_putstr_fd("piece : x{", 2);
@@ -47,5 +47,5 @@ t_filler_token			*fill_token_to_place(char **token_map,
 		ft_putendl_fd("}", 2);
 		tmp = tmp->next;
 	}
-	return (token_to_place);
+	return (to_place);
 }

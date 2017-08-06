@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   del_and_set_to_null_array_table.c                  :+:      :+:    :+:   */
+/*   deb_i.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/31 16:27:27 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/08/06 11:17:08 by jlereffa         ###   ########.fr       */
+/*   Created: 2017/07/31 17:29:41 by jlereffa          #+#    #+#             */
+/*   Updated: 2017/08/06 11:16:33 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <filler.h>
 
-void	del_and_set_to_null_array_table(char ***array_table)
+void	deb_i(char *file, int line)
 {
-	int	i;
-
-	i = 0;
-	while ((*array_table)[i])
-	{
-		free((*array_table)[i]);
-		i++;
-	}
-	free(*array_table);
-	*array_table = NULL;
+	ft_putstr_fd("\033[1;31mFILE : {\033[1;33m", 2);
+	ft_putstr_fd(file, 2);
+	ft_putstr_fd("\033[1;31m} | LINE : {\033[1;33m", 2);
+	ft_putnbr_fd(line, 2);
+	ft_putstr_fd("\033[1;31m}\n\033[0m", 2);
 }

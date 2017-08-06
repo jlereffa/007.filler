@@ -6,7 +6,7 @@
 #    By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/26 13:43:21 by jlereffa          #+#    #+#              #
-#    Updated: 2017/08/05 19:37:07 by jlereffa         ###   ########.fr        #
+#    Updated: 2017/08/06 11:06:24 by jlereffa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,14 @@ INC_LIBFT_PATH = libft/includes/
 LIBFT_PATH = libft/
 
 ##FILES
-SRC_NAME =	
+SRC_NAME =	deb_e.c del_and_set_to_null_array_table.c\
+			del_and_set_to_null_t_filler_raw.c\
+			del_and_set_to_null_t_filler_token.c\
+			determine_players_token.c extract_values_from_raw_lst_to_var_lst.c\
+			fill_token_to_place.c find_if_1_player_game.c\
+			get_raw_standard_input_to_raw_lst.c init_and_reset_var.c main.c\
+			set_t_filler_raw.c set_t_filler_token.c deb_i.c
+
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 LIB_NAME = -lft

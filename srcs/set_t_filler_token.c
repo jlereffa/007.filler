@@ -6,18 +6,17 @@
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/05 19:25:25 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/08/05 21:01:24 by jlereffa         ###   ########.fr       */
+/*   Updated: 2017/08/06 10:00:25 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <filler.h>
 
-t_filler_token	*set_t_filler_token(t_filler_token *token, int x,
-				int y)
+t_filler_token	*set_t_filler_token(t_filler_token *token, int x, int y)
 {
 	if (!token)
 	{
-		if (!(token = (t_filler_piece*)malloc(sizeof(t_filler_piece))))
+		if (!(token = (t_filler_token*)malloc(sizeof(t_filler_token))))
 			return (NULL);
 		token->x = x;
 		token->y = y;
