@@ -6,7 +6,7 @@
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/27 17:12:17 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/08/06 11:16:57 by jlereffa         ###   ########.fr       */
+/*   Updated: 2017/08/06 12:54:26 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,16 +29,23 @@ DEB
 		return (0);
 	while (1)
 	{
+DEB
 		init_and_reset_var(&v);
+DEB
 		if (!(raw = get_raw_standard_input_to_raw_lst()))
 			return (0);
+DEB
 		if (!(extract_values_from_raw_lst_to_var_lst(&v, raw)))
 			return (0);
+DEB
+		del_and_set_to_null_t_filler_raw(&raw);
+DEB
 		if (v.loop_nb == 2 && v.player_token == 'O' &&
 			(!(find_if_1_player_game(&v))))
 			v.enemy_token_to_chase = 'x';
-		//determine_and_give_answer(&v);
-		del_and_set_to_null_t_filler_raw(&raw);
+DEB
+		if (!(compute_and_give_answer(&v)))
+			return (0);
 	}
 	write(1, "X Y\n", ft_strlen("X Y\n"));
 	//}
