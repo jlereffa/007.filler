@@ -6,7 +6,7 @@
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/27 17:12:17 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/08/08 11:39:55 by jlereffa         ###   ########.fr       */
+/*   Updated: 2017/08/08 11:46:37 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ int			main(void)
 		if (v.loop_nb == 2 && v.player_token == 'O' &&
 			(!(find_if_1_player_game(&v))))
 			v.enemy_token_to_chase = 'x';
-		/*if (!(compute_and_give_answer(&v)))
-			return (0);*/
+		if (!(compute_and_give_answer(&v)))
+			return (0);
 	//}
 	write(1, "X Y\n", ft_strlen("X Y\n"));
 	//}

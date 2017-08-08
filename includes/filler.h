@@ -6,7 +6,7 @@
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/27 17:13:16 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/08/07 18:25:06 by jlereffa         ###   ########.fr       */
+/*   Updated: 2017/08/08 12:08:03 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,10 +73,15 @@ struct 				s_filler_var
 };
 
 void				deb_e(char *s);//<= TO DEL
-void				deb_i(char *file, int line);
+void				deb_i(char *file, int line);//TO DEL
 
 int					determine_players_token(t_filler_var *v);//[OK]
-//int					compute_and_give_answer(t_filler_var *v);
+int					compute_and_give_answer(t_filler_var *v);
+void				find_enemy_token_position(t_filler_var *v);
+int					add_player_first_token_to_placed_tokens_lst(t_filler_var
+					*v);
+void				sort_placed_tokens_by_closeness_with_target(t_filler_token
+					**token, t_filler_var *v)
 
 void				init_and_reset_var(t_filler_var *v);//[OK]
 
