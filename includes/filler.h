@@ -6,7 +6,7 @@
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/27 17:13:16 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/08/06 12:30:26 by jlereffa         ###   ########.fr       */
+/*   Updated: 2017/08/07 18:25:06 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ struct 				s_filler_token
 	int				x;
 	int				y;
 	int				closeness;
+	int				sum;
 	t_filler_token	*prev;
 	t_filler_token	*next;
 };
@@ -75,7 +76,7 @@ void				deb_e(char *s);//<= TO DEL
 void				deb_i(char *file, int line);
 
 int					determine_players_token(t_filler_var *v);//[OK]
-int					compute_and_give_answer(t_filler_var *v);
+//int					compute_and_give_answer(t_filler_var *v);
 
 void				init_and_reset_var(t_filler_var *v);//[OK]
 

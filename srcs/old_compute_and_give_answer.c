@@ -6,7 +6,7 @@
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/05 12:13:59 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/08/06 19:32:37 by jlereffa         ###   ########.fr       */
+/*   Updated: 2017/08/07 18:15:46 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,8 @@ static void	sort_placed_tokens_by_closeness_with_target(t_filler_token **token,
 	while (!sorted)
 	{
 		sorted = 1;
+		while ((*token)->prev)
+			*token = (*token)->prev;
 		ptr = *token;
 		while (ptr)
 		{
@@ -122,7 +124,7 @@ static void	sort_placed_tokens_by_closeness_with_target(t_filler_token **token,
 }
 
 static void	find_angle_to_handle_token_to_place_and_sort_to_place(t_filler_token
-			*start, t_filler_token *to_sort, int target_x, int target_y)
+			*start, t_filler_token **to_sort, int target_x, int target_y)
 {
 	int x_axis;//<- Define if target is upper or lower than point
 	int x_abs;//<- Define if target is more to the left or to the right than point
@@ -146,7 +148,9 @@ static void	find_angle_to_handle_token_to_place_and_sort_to_place(t_filler_token
 	while (!sorted)
 	{
 		sorted = 1;
-		ptr = to_sort;
+		while ((*to_sort)->prev)
+			*to_sort = (*to_sort)->prev;
+		ptr = *to_sort;
 		while (ptr)
 		{
 			if (ptr->next && is_x_axis_prio && target_is_higher &&
@@ -212,6 +216,20 @@ static void	find_angle_to_handle_token_to_place_and_sort_to_place(t_filler_token
 			ptr = ptr->next;
 		}
 	}
+	while ((*to_sort->prev)
+		*to_sort = (*to_sort)->prev;
+}
+
+static int	try_to_place_token(t_filler_token *to_place, t_filler_token
+			*placed_tokens, t_filler_var *v)
+{
+	int	placed;
+
+	placed = 0;
+	while (placed < to_place->sum)
+	{
+
+	}
 }
 
 static int	place_token(t_filler_token *placed_tokens, t_filler_var *v)
@@ -219,8 +237,8 @@ static int	place_token(t_filler_token *placed_tokens, t_filler_var *v)
 	while (placed_tokens)
 	{
 		find_angle_to_handle_token_to_place_and_sort_to_place(placed_tokens,
-		v->to_place, E_COORD_X, E_COORD_Y)
-		if (try_to_fit_token(v->to_place, placed_tokens))
+		&v->to_place, E_COORD_X, E_COORD_Y)
+		if (try_to_place_token(v->to_place, placed_tokens))
 			return (1);
 		placed_tokens = placed_tokens->next;
 	}
@@ -229,19 +247,12 @@ static int	place_token(t_filler_token *placed_tokens, t_filler_var *v)
 
 int	compute_and_give_answer(t_filler_var *v)
 {
-DEB
 	find_enemy_token_position(v);
-DEB
 	if (v->loop_nb == 1)
-	{
-DEB
 		if (!(add_first_token_to_placed_tokens_lst(v->placed_tokens)))
 			return (0);
-	}
-DEB
 	sort_placed_tokens_by_closeness_with_target(v->placed_tokens, v);
 	if (!(place_token(v)))
 		return (0);
-DEB
 	return (1);
 }
