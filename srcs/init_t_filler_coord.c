@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   compute_and_give_answer.c                          :+:      :+:    :+:   */
+/*   init_t_filler_coord.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/05 12:13:59 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/08/08 12:29:28 by jlereffa         ###   ########.fr       */
+/*   Created: 2017/08/08 13:03:55 by jlereffa          #+#    #+#             */
+/*   Updated: 2017/08/08 13:04:00 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <filler.h>
 
-int	compute_and_give_answer(t_filler_var *v)
+void init_t_filler_coord(t_filler_coord *coord, int x_axis, int y_axis)
 {
-	find_enemy_token_position(v);//VALID
-	if (v->loop_nb == 1)
-		if (!(add_player_first_token_to_placed_tokens_lst(v)))//VALID
-			return (0);
-	sort_placed_tokens_by_closeness_with_target(&v->placed_tokens, v);//VALID
-	if(!(place_token_if_possible(v->placed_tokens, v)))
-		return (0);
-	return (1);
+	c->x_axis = x_axis;
+	c->target_is_higher = c.x_axis < 0 ? 0 : 1;
+	c->y_axis = y_axis;
+	c->target_is_lefter = c.y_axis < 0 ? 0 : 1;
+	c->x_abs = c->x_axis < 0 ? c->x_axis * -1 : x->x_axis;
+	c->y_abs = c->y_axis < 0 ? c->y_axis * -1 : c->y_axis;
+	c->is_x_axis_prio = c->y_abs > c->x_abs ? 0 : 1;
 }

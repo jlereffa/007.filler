@@ -6,7 +6,7 @@
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/27 17:13:16 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/08/08 12:08:03 by jlereffa         ###   ########.fr       */
+/*   Updated: 2017/08/08 13:06:06 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,19 @@
 
 # define E_COORD_X v->enemy_token_to_chase_coord_x
 # define E_COORD_Y v->enemy_token_to_chase_coord_y
+
+typedef struct s_filler_coord t_filler_coord;
+struct 				s_filler_coord
+{
+	int x_axis;//<- Define if target is upper or lower than point
+	int x_abs;//<- Define if target is more to the left or to the right than point
+	int	y_axis;//<- Define the distance in x_axis in brut
+	int	y_abs;//<- Define the distance in y_axis in brut
+	int	is_x_axis_prio;//<- define if the distance in height is greater than in y_axis
+	int	target_is_higher;//<- if target is higher, place prio greater values
+	int	target_is_lefter;//<- if target is lefter, place prio greater values
+	int	sorted;
+}
 
 typedef struct s_filler_tmp t_filler_tmp;
 struct 				s_filler_tmp
@@ -81,9 +94,16 @@ void				find_enemy_token_position(t_filler_var *v);
 int					add_player_first_token_to_placed_tokens_lst(t_filler_var
 					*v);
 void				sort_placed_tokens_by_closeness_with_target(t_filler_token
-					**token, t_filler_var *v)
+					**token, t_filler_var *v);
+int					place_token_if_possible(t_filler_token *placed_tokens,
+					t_filler_var *v);
+void				find_angle_to_handle_token_to_place_and_sort(t_filler_token
+					*start, t_filler_token **to_sort, int target_x, int
+					target_y)
 
 void				init_and_reset_var(t_filler_var *v);//[OK]
+void				init_t_filler_coord(t_filler_coord *coord, int x_axis,
+					int y_axis);
 
 t_filler_raw		*get_raw_standard_input_to_raw_lst(void);
 int					extract_values_from_raw_lst_to_var_lst(t_filler_var *v,
