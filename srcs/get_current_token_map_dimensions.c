@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   define_if_is_player_one.c                          :+:      :+:    :+:   */
+/*   get_current_token_map_dimensions.c                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/30 17:38:09 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/08/10 20:35:07 by jlereffa         ###   ########.fr       */
+/*   Created: 2017/08/10 21:52:59 by jlereffa          #+#    #+#             */
+/*   Updated: 2017/08/10 21:53:14 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <filler.h>
 
-int	define_if_is_player_one(t_filler_var *v)
+int	get_current_token_map_dimensions(t_filler_var *v)
 {
-	char	*line;
 	char	*ptr;
+	char	*to_free;
 
-	if ((get_next_line(0, &line)) == -1)
+	if ((get_next_line(0, &ptr) == -1))//"Piece X Y"
 		return (0);
-	ptr = line;
-	while (*line != '1' && *line != '2')
-		line++;
-	v->is_player_one = ft_atoi(line) == 1 ? 1 : 2;
-	free(ptr);
+	to_free = ptr;
+	while (!(*ptr >= '0' && *ptr <= '9'))//To X
+		ptr++;
+	v->token_map_height = ft_atoi(ptr);
+	while (*ptr >= '0' && *ptr <= '9')//To Y
+		ptr++;
+	v->token_map_lenght = ft_atoi(ptr);
+	free(to_free);
 	return (1);
 }

@@ -6,7 +6,7 @@
 #    By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/26 13:43:21 by jlereffa          #+#    #+#              #
-#    Updated: 2017/08/10 19:32:39 by jlereffa         ###   ########.fr        #
+#    Updated: 2017/08/10 21:57:47 by jlereffa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,12 @@ INC_LIBFT_PATH = libft/includes/
 LIBFT_PATH = libft/
 
 ##FILES
-SRC_NAME =	main.c define_if_is_player_one.c de.c
+SRC_NAME =	main.c define_if_is_player_one.c de.c putf.c\
+			get_current_map_and_token_from_standard_entry.c test_print.c\
+			get_current_map.c get_current_token_map_dimensions.c\
+			get_current_map_dimensions_and_jump_useless_line.c\
+			get_current_token_map.c
+
 
 
 OBJ_NAME = $(SRC_NAME:.c=.o)

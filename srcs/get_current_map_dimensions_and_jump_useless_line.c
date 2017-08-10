@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   define_if_is_player_one.c                          :+:      :+:    :+:   */
+/*   get_current_map_dimensions_and_jump_useless_line.c :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/30 17:38:09 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/08/10 20:35:07 by jlereffa         ###   ########.fr       */
+/*   Created: 2017/08/10 21:53:45 by jlereffa          #+#    #+#             */
+/*   Updated: 2017/08/10 21:54:01 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <filler.h>
 
-int	define_if_is_player_one(t_filler_var *v)
+int	get_current_map_dimensions_and_jump_useless_line(t_filler_var *v)
 {
-	char	*line;
 	char	*ptr;
+	char	*to_free;
 
-	if ((get_next_line(0, &line)) == -1)
+	if ((get_next_line(0, &ptr) == -1))//"Plateau X Y:"
 		return (0);
-	ptr = line;
-	while (*line != '1' && *line != '2')
-		line++;
-	v->is_player_one = ft_atoi(line) == 1 ? 1 : 2;
-	free(ptr);
+	to_free = ptr;
+	while (!(*ptr >= '0' && *ptr <= '9'))//To X
+		ptr++;
+	v->map_height = ft_atoi(ptr);
+	while (*ptr >= '0' && *ptr <= '9')//To Y
+		ptr++;
+	v->map_lenght = ft_atoi(ptr);
+	free(to_free);
+	if ((get_next_line(0, &to_free) == -1))//Cut out useless ptr
+		return (0);
+	free(to_free);//free useless ptr
 	return (1);
 }
