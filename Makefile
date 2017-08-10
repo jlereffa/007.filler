@@ -6,7 +6,7 @@
 #    By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/26 13:43:21 by jlereffa          #+#    #+#              #
-#    Updated: 2017/08/10 13:07:55 by jlereffa         ###   ########.fr        #
+#    Updated: 2017/08/10 19:32:39 by jlereffa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ INC_LIBFT_PATH = libft/includes/
 LIBFT_PATH = libft/
 
 ##FILES
-SRC_NAME =	
+SRC_NAME =	main.c define_if_is_player_one.c de.c
 
 
 OBJ_NAME = $(SRC_NAME:.c=.o)

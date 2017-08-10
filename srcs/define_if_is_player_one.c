@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   define_if_is_player_one.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/10 17:36:24 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/08/10 19:29:35 by jlereffa         ###   ########.fr       */
+/*   Created: 2017/07/30 17:38:09 by jlereffa          #+#    #+#             */
+/*   Updated: 2017/08/10 19:31:58 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <filler.h>
 
-int	main(void)
+int	define_if_is_player_one(t_filler_var *v)
 {
-	t_filler_var	v;
+	char	*line;
+	char	*ptr;
 
-	v->is_game_over = 0;
-	if (!(define_if_is_player_one(&v)))
+	if ((get_next_line(0, &line)) == -1)
 		return (0);
-	while (!v->is_game_over)
-	{
-		if (!get_current_map(&v))
-			return (0);
-	}
-	return (0);
+	ptr = line;
+	while (*line != '1' && *line != '2')
+		line++;
+	v->player_slot = ft_atoi(line) == 1 ? 1 : 2;
+	free(ptr);
+	return (1);
 }
