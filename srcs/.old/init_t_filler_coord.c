@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   deb_i.c                                            :+:      :+:    :+:   */
+/*   init_t_filler_coord.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/31 17:29:41 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/08/06 11:16:33 by jlereffa         ###   ########.fr       */
+/*   Created: 2017/08/08 13:03:55 by jlereffa          #+#    #+#             */
+/*   Updated: 2017/08/08 13:54:15 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <filler.h>
 
-void	deb_i(char *file, int line)
+void init_t_filler_coord(t_filler_coord *c, int x_axis, int y_axis)
 {
-	ft_putstr_fd("\033[1;31mFILE : {\033[1;33m", 2);
-	ft_putstr_fd(file, 2);
-	ft_putstr_fd("\033[1;31m} | LINE : {\033[1;33m", 2);
-	ft_putnbr_fd(line, 2);
-	ft_putstr_fd("\033[1;31m}\n\033[0m", 2);
+	c->x_axis = x_axis;
+	c->target_is_higher = c->x_axis < 0 ? 0 : 1;
+	c->y_axis = y_axis;
+	c->target_is_lefter = c->y_axis < 0 ? 0 : 1;
+	c->x_abs = c->x_axis < 0 ? c->x_axis * -1 : c->x_axis;
+	c->y_abs = c->y_axis < 0 ? c->y_axis * -1 : c->y_axis;
+	c->is_x_axis_prio = c->y_abs > c->x_abs ? 0 : 1;
 }

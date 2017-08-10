@@ -6,7 +6,7 @@
 #    By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/26 13:43:21 by jlereffa          #+#    #+#              #
-#    Updated: 2017/08/08 13:06:25 by jlereffa         ###   ########.fr        #
+#    Updated: 2017/08/10 13:07:55 by jlereffa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,18 +23,7 @@ INC_LIBFT_PATH = libft/includes/
 LIBFT_PATH = libft/
 
 ##FILES
-SRC_NAME =	deb_e.c del_and_set_to_null_array_table.c\
-			del_and_set_to_null_t_filler_raw.c\
-			del_and_set_to_null_t_filler_token.c\
-			determine_players_token.c extract_values_from_raw_lst_to_var_lst.c\
-			fill_token_to_place.c find_if_1_player_game.c\
-			get_raw_standard_input_to_raw_lst.c init_and_reset_var.c main.c\
-			set_t_filler_raw.c set_t_filler_token.c deb_i.c\
-			compute_and_give_answer.c find_enemy_token_position.c\
-			add_player_first_token_to_placed_tokens_lst.c\
-			sort_placed_tokens_by_closeness_with_target.c\
-			place_token_if_possible.c init_t_filler_coord.c\
-			find_angle_to_handle_token_to_place_and_sort.c
+SRC_NAME =	
 
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
