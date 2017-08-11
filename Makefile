@@ -6,7 +6,7 @@
 #    By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/26 13:43:21 by jlereffa          #+#    #+#              #
-#    Updated: 2017/08/11 10:19:06 by jlereffa         ###   ########.fr        #
+#    Updated: 2017/08/11 10:33:02 by jlereffa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ SRC_NAME =	main.c define_if_is_player_one.c de.c putf.c\
 			get_current_token_map.c set_t_filler_token.c\
 			extract_token_lst_from_token_map.c init_and_reset_t_filler_var.c\
 			del_and_set_to_null_array_table.c\
-			del_and_set_to_null_t_filler_token.c
+			del_and_set_to_null_t_filler_token.c rewind_t_filler_token.c
 
 
 

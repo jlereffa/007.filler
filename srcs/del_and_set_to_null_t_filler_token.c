@@ -6,7 +6,7 @@
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/31 16:28:52 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/08/05 19:59:34 by jlereffa         ###   ########.fr       */
+/*   Updated: 2017/08/11 10:21:48 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,5 @@ void	del_and_set_to_null_t_filler_token(t_filler_token **token)
 		else
 			*token = NULL;
 		free(tmp);
- 	}
+	}
 }

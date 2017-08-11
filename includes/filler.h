@@ -6,7 +6,7 @@
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/10 17:37:14 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/08/11 10:17:49 by jlereffa         ###   ########.fr       */
+/*   Updated: 2017/08/11 10:34:22 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <libft.h>
 
 typedef struct s_filler_token	t_filler_token;
-struct		s_filler_token
+struct				s_filler_token
 {
 	int				x;
 	int				y;
@@ -25,7 +25,7 @@ struct		s_filler_token
 };
 
 typedef struct s_filler_var	t_filler_var;
-struct		s_filler_var
+struct				s_filler_var
 {
 	int				is_first_loop;
 	int				is_player_one;
@@ -59,6 +59,7 @@ void				init_and_reset_t_filler_var(t_filler_var *v);
 */
 
 t_filler_token		*set_t_filler_token(t_filler_token *token, int x, int y);
+void				rewind_t_filler_token(t_filler_token **token);
 
 /*
 **	Parsing and acquiring from standard entry functions
