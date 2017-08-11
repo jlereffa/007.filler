@@ -6,7 +6,7 @@
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/10 17:37:14 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/08/11 11:17:06 by jlereffa         ###   ########.fr       */
+/*   Updated: 2017/08/11 17:11:41 by Nerhak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ struct					s_filler_solution
 {
 	int					value;
 	int					**tab;
-	t_filler_token		*prev;
-	t_filler_token		*next;
+	t_filler_solution	*prev;
+	t_filler_solution	*next;
 };
 
 typedef struct s_filler_token	t_filler_token;
@@ -64,6 +64,7 @@ void					test_print(t_filler_var *v);
 
 int						define_if_is_player_one(t_filler_var *v);
 void					init_and_reset_t_filler_var(t_filler_var *v);
+
 /*
 **	Creation and manipulation of linked structs functions
 */
@@ -71,6 +72,9 @@ void					init_and_reset_t_filler_var(t_filler_var *v);
 t_filler_token			*set_t_filler_token(
 						t_filler_token *token, int x, int y);
 void					rewind_t_filler_token(t_filler_token **token);
+t_filler_solution		*set_t_filler_solution(
+						t_filler_solution *solution, t_filler_var *v);
+void					rewind_t_filler_solution(t_filler_solution **solution);
 
 /*
 **	Parsing and acquiring from standard entry functions
@@ -84,6 +88,17 @@ int						get_current_map(t_filler_var *v);
 int						get_current_token_map_dimensions(t_filler_var *v);
 int						get_current_token_map(t_filler_var *v);
 int						extract_token_lst_from_token_map(t_filler_var *v);
+
+/*
+**	Algorithm functions
+*/
+
+int						try_to_find_solutions_through_algorithm(
+						t_filler_var *v);
+int						check_if_token_is_placable(
+						t_filler_var *v, int i, int j);
+int						evaluate_and_stock_solution(
+						t_filler_var *v, int i, int j);
 
 /*
 **	Deletion Functions

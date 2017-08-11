@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   try_to_find_solutions_through_algorithm.c          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/10 17:36:24 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/08/11 17:09:13 by Nerhak           ###   ########.fr       */
+/*   Created: 2017/08/11 10:39:59 by jlereffa          #+#    #+#             */
+/*   Updated: 2017/08/11 17:13:33 by Nerhak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <filler.h>
 
-int	main(void)
+int	try_to_find_solutions_through_algorithm(t_filler_var *v)
 {
-	t_filler_var	v;
+	int	i;
+	int	j;
 
-	v.is_game_over = 0;
-	v.is_first_loop = 1;
-	if (!define_if_is_player_one(&v))
-		return (0);
-	while (!v.is_game_over)
+	i = -1;
+	while (v->map[++i])
 	{
-		init_and_reset_t_filler_var(&v);
-		if (!get_current_map_and_token_from_standard_entry(&v) ||
-			!extract_token_lst_from_token_map(&v) ||
-			!try_to_find_solutions_through_algorithm(&v))
-			return (0);
-		test_print(&v);
+		j = -1;
+		while (v->map[i][++j])
+		{
+			if (v->map[i][j] != 'T' && check_if_token_is_placable(v, i, j) &&
+				!evaluate_and_stock_solution(v, i, j))
+				return (0);
+		}
 	}
-	return (0);
+	rewind_t_filler_solution(&v->solution);
 }

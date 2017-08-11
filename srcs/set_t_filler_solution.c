@@ -6,7 +6,7 @@
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/11 11:20:45 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/08/11 11:48:45 by jlereffa         ###   ########.fr       */
+/*   Updated: 2017/08/11 17:08:40 by Nerhak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static int			initialize_solution_tab(int ***tab, t_filler_var *v)
 				tab[i][j] = -1;
 		}
 	}
-	
+
 }
 
 t_filler_solution	*set_t_filler_solution(
@@ -52,5 +52,11 @@ t_filler_solution	*set_t_filler_solution(
 		solution->next = NULL;
 		return (solution);
 	}
-
+	while (solution->next)
+		solution = solution->next;
+	if (!(solution->next = set_t_filler_solution(solution->next, v)))
+		return (NULL);
+	solution->next = solution;
+	solution = solution->next;
+	return (solution);
 }

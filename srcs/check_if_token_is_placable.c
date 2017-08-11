@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   x_function.c                                       :+:      :+:    :+:   */
+/*   check_if_token_is_placable.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Nerhak <Nerhak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/11 10:39:59 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/08/11 11:20:29 by jlereffa         ###   ########.fr       */
+/*   Created: 2017/08/11 16:54:26 by Nerhak            #+#    #+#             */
+/*   Updated: 2017/08/11 16:54:47 by Nerhak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,35 +31,4 @@ int	check_if_token_is_placable(t_filler_var *v, int i, int j)
 		tmp = tmp->next;
 	}
 	return (1);
-}
-
-int	evaluate_and_stock_solution(t_filler_var *v, int i, int j)
-{
-	t_filler_token	*tmp;
-
-	if (!(v->solution = set_t_filler_solution(v->solution, v)))
-		return (0);
-}
-
-int	placeholder_name_1_function(t_filler_var *v)
-{
-	int	i;
-	int	j;
-
-	i = -1;
-	while (v->map[++i])
-	{
-		j = -1;
-		while (v->map[i][++j])
-		{
-			if (v->map[i][j] != 'T')
-			{
-				if (check_if_token_is_placable(v, i, j))
-				{
-					if (!evaluate_and_stock_solution(v, i, j))
-				}
-			}
-		}
-
-	}
 }
