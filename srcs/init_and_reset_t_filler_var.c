@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   init_and_reset_t_filler_var.c                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/10 17:36:24 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/08/11 10:12:10 by jlereffa         ###   ########.fr       */
+/*   Created: 2017/08/11 10:10:49 by jlereffa          #+#    #+#             */
+/*   Updated: 2017/08/11 10:18:17 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <filler.h>
 
-int	main(void)
+void	init_and_reset_t_filler_var(t_filler_var *v)
 {
-	t_filler_var	v;
-
-	v.is_game_over = 0;
-	v.is_first_loop = 1;
-	if (!define_if_is_player_one(&v))
-		return (0);
-	while (!v.is_game_over)
+	if (!v->is_first_loop)
 	{
-		init_and_reset_t_filler_var(&v);
-		if (!get_current_map_and_token_from_standard_entry(&v))
-			return (0);
-		if (!(extract_token_lst_from_token_map(&v)))
-			return (0);
-		test_print(&v);
+		del_and_set_to_null_array_table(&v->map);
+		del_and_set_to_null_array_table(&v->token_map);
+		del_and_set_to_null_t_filler_token(&v->token);
 	}
-	return (0);
+	v->map = NULL;
+	v->map_height = 0;
+	v->map_lenght = 0;
+	v->token_map = NULL;
+	v->token_map_height = 0;
+	v->token_map_lenght = 0;
+	v->token = NULL;
+	//v->is_first_loop = 0;
 }

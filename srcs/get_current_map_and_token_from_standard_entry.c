@@ -6,7 +6,7 @@
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/10 19:42:23 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/08/10 21:56:24 by jlereffa         ###   ########.fr       */
+/*   Updated: 2017/08/11 09:35:36 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int	get_current_map_and_token_from_standard_entry(t_filler_var *v)
 {
-	if (!(get_current_map_dimensions_and_jump_useless_line(v)) ||
-		(!(get_current_map(v))) ||
-		(!(get_current_token_map_dimensions(v))) ||
-		(!(get_current_token_map(v))))
+	if (!get_current_map_dimensions_and_jump_useless_line(v) ||
+		!(get_current_map(v)) ||
+		!(get_current_token_map_dimensions(v)) ||
+		!(get_current_token_map(v)))
 		return (0);
 	return (1);
 }
