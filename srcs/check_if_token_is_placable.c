@@ -6,7 +6,7 @@
 /*   By: Nerhak <Nerhak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/11 16:54:26 by Nerhak            #+#    #+#             */
-/*   Updated: 2017/08/12 14:20:08 by jlereffa         ###   ########.fr       */
+/*   Updated: 2017/08/12 14:36:10 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,21 +19,31 @@ int	check_if_token_is_placable(t_filler_var *v, int i, int j)
 
 	overlaps = 0;
 	tmp = v->token;
-	DEB
+	//DEB
 	while (tmp)
 	{
-		DEB
-		if (i + v->token->x < 0 || i + v->token->x >= v->map_height ||
-			(j + v->token->y < 0 || j + v->token->y >= v->map_lenght ||
-			v->map[i + v->token->x][j + v->token->y] == 'T' ||
-			(v->map[i + v->token->x][j + v->token->y] == 'P' && overlaps)))
+		//DEB
+		putf("-------------------\n");
+		putf("i + v->token->x : {");
+		ft_putnbr_fd(i + v->token->x, 2);
+		putf("}\nj + v->token->y : {");
+		ft_putnbr_fd(j + v->token->y, 2);
+		putf("}\n");
+		if (i + tmp->x < 0 || i + tmp->x >= v->map_height ||
+			(j + tmp->y < 0 || j + tmp->y >= v->map_lenght ||
+			v->map[i + tmp->x][j + tmp->y] == 'T' ||
+			(v->map[i + tmp->x][j + tmp->y] == 'P' && overlaps)))
 			return (0);
-		else if (v->map[i + v->token->x][j + v->token->y] == 'P')
+		else if (v->map[i + tmp->x][j + tmp->y] == 'P')
 			overlaps = 1;
 		tmp = tmp->next;
 	}
-	if (overlaps == 1)
+	if (overlaps)
+	{
+		putf("IS OK\n");
 		return (1);
-	DEB
+	}
+	//DEB
+	//putf("IS NOT OK\n");
 	return (0);
 }

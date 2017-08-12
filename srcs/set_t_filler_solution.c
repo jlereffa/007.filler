@@ -6,7 +6,7 @@
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/11 11:20:45 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/08/12 14:08:41 by jlereffa         ###   ########.fr       */
+/*   Updated: 2017/08/12 14:33:22 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,23 +29,23 @@ static int			initialize_solution_tab(
 	int	j;
 
 	i = -1;
-	DEB
+//	DEB
 	if (!(*tab = (int**)malloc(sizeof(int*) * v->map_height)))
 		return (0);
-	DEB
+//	DEB
 	while (++i < v->map_height)
 	{
-		DEB
+		//DEB
 		putf("i : {");
 		ft_putnbr_fd(i, 2);
 		putf("}\n");
 		if (!((*tab)[i] = (int*)malloc(sizeof(int) * v->map_lenght)))
 			return (0);
 		j = -1;
-		DEB
+//		DEB
 		while (++j < v->map_lenght)
 		{
-			DEB
+	//		DEB
 			putf("j : {");
 			ft_putnbr_fd(j, 2);
 			putf("}\n");
@@ -55,44 +55,44 @@ static int			initialize_solution_tab(
 				(*tab)[i][j] = 1;
 			else if (v->map[i][j] == 'T')
 				(*tab)[i][j] = -1;
-			DEB
+	//		DEB
 		}
 	}
-	DEB
+	//DEB
 	place_token_on_current_position_on_map(tab, v->token, x, y);
-	DEB
+//	DEB
 	return (1);
 }
 
 t_filler_solution	*set_t_filler_solution(
 					t_filler_solution *solution, t_filler_var *v, int i, int j)
 {
-	DEB
+//	DEB
 	if (!solution)
 	{
-		DEB
+//		DEB
 		if (!(solution = (t_filler_solution*)malloc(sizeof(t_filler_solution))))
 			return (NULL);
 		solution->value = 0;
-		DEB
+//		DEB
 		if (!(initialize_solution_tab(&solution->tab, v, i, j)))
 			return (NULL);
-		DEB
+	//	DEB
 		solution->prev = NULL;
 		solution->next = NULL;
 		DEB
 		return (solution);
 	}
-	DEB
+	//DEB
 	while (solution->next)
 	{
-		DEB
+//		DEB
 		solution = solution->next;
 	}
 	if (!(solution->next = set_t_filler_solution(solution->next, v, i, j)))
 		return (NULL);
 	solution->next->prev = solution;
 	solution = solution->next;
-	DEB
+//	DEB
 	return (solution);
 }

@@ -6,7 +6,7 @@
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/11 10:31:31 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/08/11 17:12:30 by Nerhak           ###   ########.fr       */
+/*   Updated: 2017/08/12 14:25:43 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	rewind_t_filler_solution(t_filler_solution **solution)
 {
-	while ((*solution)->prev)
-		*solution = (*solution)->prev;
+	if (solution && *solution)
+		while ((*solution)->prev)
+			*solution = (*solution)->prev;
 }
