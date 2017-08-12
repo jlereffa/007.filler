@@ -6,7 +6,7 @@
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/10 17:37:14 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/08/11 17:11:41 by Nerhak           ###   ########.fr       */
+/*   Updated: 2017/08/12 13:50:22 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,8 @@ t_filler_token			*set_t_filler_token(
 						t_filler_token *token, int x, int y);
 void					rewind_t_filler_token(t_filler_token **token);
 t_filler_solution		*set_t_filler_solution(
-						t_filler_solution *solution, t_filler_var *v);
+						t_filler_solution *solution, t_filler_var *v,
+						int i, int j);
 void					rewind_t_filler_solution(t_filler_solution **solution);
 
 /*
@@ -93,8 +94,7 @@ int						extract_token_lst_from_token_map(t_filler_var *v);
 **	Algorithm functions
 */
 
-int						try_to_find_solutions_through_algorithm(
-						t_filler_var *v);
+int						find_solutions_through_algorithm(t_filler_var *v);
 int						check_if_token_is_placable(
 						t_filler_var *v, int i, int j);
 int						evaluate_and_stock_solution(
@@ -107,5 +107,8 @@ int						evaluate_and_stock_solution(
 void					del_and_set_to_null_array_table(char ***array_table);
 void					del_and_set_to_null_t_filler_token(
 						t_filler_token **token);
-
+void					del_and_set_to_null_t_filler_solution(
+						t_filler_solution **solution, int i_max);
+void					del_and_set_to_null_int_array_table(
+						int ***tab, int i_max);
 #endif

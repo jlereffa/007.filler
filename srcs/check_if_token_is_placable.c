@@ -6,7 +6,7 @@
 /*   By: Nerhak <Nerhak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/11 16:54:26 by Nerhak            #+#    #+#             */
-/*   Updated: 2017/08/11 16:54:47 by Nerhak           ###   ########.fr       */
+/*   Updated: 2017/08/12 14:20:08 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,10 @@ int	check_if_token_is_placable(t_filler_var *v, int i, int j)
 
 	overlaps = 0;
 	tmp = v->token;
+	DEB
 	while (tmp)
 	{
+		DEB
 		if (i + v->token->x < 0 || i + v->token->x >= v->map_height ||
 			(j + v->token->y < 0 || j + v->token->y >= v->map_lenght ||
 			v->map[i + v->token->x][j + v->token->y] == 'T' ||
@@ -30,5 +32,8 @@ int	check_if_token_is_placable(t_filler_var *v, int i, int j)
 			overlaps = 1;
 		tmp = tmp->next;
 	}
-	return (1);
+	if (overlaps == 1)
+		return (1);
+	DEB
+	return (0);
 }

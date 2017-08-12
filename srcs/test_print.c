@@ -6,7 +6,7 @@
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/10 20:38:10 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/08/11 10:09:14 by jlereffa         ###   ########.fr       */
+/*   Updated: 2017/08/12 14:18:24 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 
 void	test_print(t_filler_var *v)
 {
-	int				i;
-	t_filler_token	*tmp;
+	int					i;
+	int					j;
+	t_filler_token		*tmp;
+	t_filler_solution	*tmp2;
 
 	putf("is_player_one : ");
 	ft_putnbr_fd(v->is_player_one, 2);
@@ -57,6 +59,24 @@ void	test_print(t_filler_var *v)
 		ft_putnbr_fd(tmp->y, 2);
 		putf("}\n");
 		tmp = tmp->next;
+	}
+	DEB
+	tmp2 = v->solution;
+	while (tmp2)
+	{
+		putf("solution : \n");
+		i = -1;
+		while (++i < v->map_height)
+		{
+			j = -1;
+			while (++j < v->map_lenght)
+			{
+				putf("|");
+				ft_putnbr_fd((tmp2)->tab[i][j], 2);
+			}
+			putf("\n");
+		}
+		tmp2 = tmp2->next;
 	}
 	exit(0);
 }
