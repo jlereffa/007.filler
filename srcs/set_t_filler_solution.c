@@ -6,7 +6,7 @@
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/11 11:20:45 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/08/12 14:33:22 by jlereffa         ###   ########.fr       */
+/*   Updated: 2017/08/12 14:42:56 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,20 +36,20 @@ static int			initialize_solution_tab(
 	while (++i < v->map_height)
 	{
 		//DEB
-		putf("i : {");
+		/*putf("i : {");
 		ft_putnbr_fd(i, 2);
 		putf("}\n");
-		if (!((*tab)[i] = (int*)malloc(sizeof(int) * v->map_lenght)))
+		*/if (!((*tab)[i] = (int*)malloc(sizeof(int) * v->map_lenght)))
 			return (0);
 		j = -1;
 //		DEB
 		while (++j < v->map_lenght)
 		{
 	//		DEB
-			putf("j : {");
+			/*putf("j : {");
 			ft_putnbr_fd(j, 2);
 			putf("}\n");
-			if (v->map[i][j] == '.')
+			*/if (v->map[i][j] == '.')
 				(*tab)[i][j] = 0;
 			else if (v->map[i][j] == 'P')
 				(*tab)[i][j] = 1;
@@ -80,7 +80,7 @@ t_filler_solution	*set_t_filler_solution(
 	//	DEB
 		solution->prev = NULL;
 		solution->next = NULL;
-		DEB
+		//DEB
 		return (solution);
 	}
 	//DEB

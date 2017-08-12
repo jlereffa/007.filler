@@ -6,7 +6,7 @@
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/10 20:38:10 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/08/12 14:18:24 by jlereffa         ###   ########.fr       */
+/*   Updated: 2017/08/12 14:43:27 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,14 +60,17 @@ void	test_print(t_filler_var *v)
 		putf("}\n");
 		tmp = tmp->next;
 	}
-	DEB
+	//DEB
 	tmp2 = v->solution;
 	while (tmp2)
 	{
-		putf("solution : \n");
+		putf("Possible solution : \n");
 		i = -1;
 		while (++i < v->map_height)
 		{
+			putf("[");
+			ft_putnbr_fd(i, 2);
+			putf("] :\t");
 			j = -1;
 			while (++j < v->map_lenght)
 			{
