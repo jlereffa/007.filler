@@ -6,7 +6,7 @@
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/10 17:37:14 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/08/12 13:50:22 by jlereffa         ###   ########.fr       */
+/*   Updated: 2017/08/12 17:15:44 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 typedef struct s_filler_solution	t_filler_solution;
 struct					s_filler_solution
 {
+	int					x_origin;
+	int					y_origin;
 	int					value;
 	int					**tab;
 	t_filler_solution	*prev;
@@ -99,6 +101,8 @@ int						check_if_token_is_placable(
 						t_filler_var *v, int i, int j);
 int						evaluate_and_stock_solution(
 						t_filler_var *v, int i, int j);
+int						get_solutions_values(
+						t_filler_solution *solution, t_filler_var *v);
 
 /*
 **	Deletion Functions

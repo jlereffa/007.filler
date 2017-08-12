@@ -6,7 +6,7 @@
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/10 20:38:10 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/08/12 14:43:27 by jlereffa         ###   ########.fr       */
+/*   Updated: 2017/08/12 17:26:59 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,9 @@ void	test_print(t_filler_var *v)
 			}
 			putf("\n");
 		}
+		putf("Value : {");
+		ft_putnbr_fd(tmp2->value, 2);
+		putf("}\n");
 		tmp2 = tmp2->next;
 	}
 	exit(0);

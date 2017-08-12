@@ -6,7 +6,7 @@
 #    By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/26 13:43:21 by jlereffa          #+#    #+#              #
-#    Updated: 2017/08/12 13:51:09 by jlereffa         ###   ########.fr        #
+#    Updated: 2017/08/12 17:16:09 by jlereffa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,7 @@ SRC_NAME =	main.c define_if_is_player_one.c de.c putf.c\
 			check_if_token_is_placable.c rewind_t_filler_solution.c\
 			del_and_set_to_null_t_filler_solution.c\
 			del_and_set_to_null_int_array_table.c evaluate_and_stock_solution.c\
-			set_t_filler_solution.c
+			set_t_filler_solution.c get_solutions_values.c
 
 
 
