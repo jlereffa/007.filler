@@ -6,7 +6,7 @@
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/11 10:39:59 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/08/12 14:32:45 by jlereffa         ###   ########.fr       */
+/*   Updated: 2017/08/13 09:34:47 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,15 @@ int	find_solutions_through_algorithm(t_filler_var *v)
 		j = -1;
 		while (v->map[i][++j])
 		{
-		//	DEB
+			DEB
 			if (v->map[i][j] != 'T' && check_if_token_is_placable(v, i, j) &&
 				!evaluate_and_stock_solution(v, i, j))
 				return (0);
-		//	DEB
+			DEB
 		}
 	}
-//	DEB
+	DEB
 	rewind_t_filler_solution(&v->solution);
-//	DEB
+	DEB
 	return (1);
 }
