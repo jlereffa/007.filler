@@ -6,7 +6,7 @@
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/10 21:52:13 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/08/13 12:47:32 by jlereffa         ###   ########.fr       */
+/*   Updated: 2017/08/13 13:48:35 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ int	get_current_token_map(t_filler_var *v)
 	{
 		if ((get_next_line(v->fd, &ptr) <= 0))
 			return (0);
-		putf(ptr);//
-		putf("\n");//
+	//	putf(ptr);//
+		//putf("\n");//
 		v->token_map[i] = ptr;
 	}
 	v->token_map[i] = NULL;
