@@ -6,7 +6,7 @@
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/11 10:31:31 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/08/13 10:26:02 by jlereffa         ###   ########.fr       */
+/*   Updated: 2017/08/13 13:02:43 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,13 @@
 
 int	rewind_t_filler_solution(t_filler_solution **solution)
 {
-	if (!solution || !*solution)
+	if (!solution || !(*solution))
+	{
+		putf("FALSE\n");
 		return (0);
+	}
 	while ((*solution)->prev)
 		*solution = (*solution)->prev;
+	putf("TRUE\n");
 	return (1);
 }

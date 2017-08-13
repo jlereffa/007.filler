@@ -6,7 +6,7 @@
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/10 17:37:14 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/08/13 11:19:09 by jlereffa         ###   ########.fr       */
+/*   Updated: 2017/08/13 12:48:36 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ struct					s_filler_token
 typedef struct s_filler_var	t_filler_var;
 struct					s_filler_var
 {
+	int					fd;
 	int					is_first_loop;
 	int					is_player_one;
 	char				**map;
