@@ -6,7 +6,7 @@
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/10 21:54:31 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/08/10 21:54:52 by jlereffa         ###   ########.fr       */
+/*   Updated: 2017/08/13 10:16:03 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,10 @@ static int	fill_map_string_from_line(t_filler_var *v, char *ptr, int i)
 {
 	int	j;
 
+//	while ((*ptr >= '0' && *ptr <= '9') || *ptr == ' ')
+//		ptr++;
+	ptr += 4;
 	j = 0;
-	while ((*ptr >= '0' && *ptr <= '9') || *ptr == ' ')
-		ptr++;
 	while (*ptr)
 	{
 		if (*ptr == '.')
@@ -43,13 +44,13 @@ int			get_current_map(t_filler_var *v)
 	char	*to_free;
 	int		i;
 
-	i = -1;
 	if (!(v->map = (char**)malloc(sizeof(char*) * v->map_height + 1)))
 		return (0);
+	i = -1;
 	while (++i < v->map_height)
 	{
 		if (!(v->map[i] = (char*)malloc(sizeof(char) * v->map_lenght + 1)) ||
-			((get_next_line(0, &to_free) == -1)))//"000 .X....O."
+			((get_next_line(0, &to_free) <= 0)))//"000 .X....O."
 			return (0);
 		fill_map_string_from_line(v, to_free, i);
 		free(to_free);

@@ -6,7 +6,7 @@
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/11 09:40:07 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/08/11 10:34:11 by jlereffa         ###   ########.fr       */
+/*   Updated: 2017/08/13 10:27:14 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,5 @@ int			extract_token_lst_from_token_map(t_filler_var *v)
 			}
 		}
 	}
-	rewind_t_filler_token(&v->token);
-	return (1);
+	return (!rewind_t_filler_token(&v->token) ? 0 : 1);
 }

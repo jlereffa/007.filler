@@ -6,7 +6,7 @@
 #    By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/26 13:43:21 by jlereffa          #+#    #+#              #
-#    Updated: 2017/08/13 03:37:05 by Nerhak           ###   ########.fr        #
+#    Updated: 2017/08/13 10:34:43 by jlereffa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,7 @@ SRC_NAME =	main.c define_if_is_player_one.c de.c putf.c\
 			del_and_set_to_null_t_filler_solution.c\
 			del_and_set_to_null_int_array_table.c evaluate_and_stock_solution.c\
 			set_t_filler_solution.c get_solutions_values.c\
-			find_greater_value_and_print_it.c
+			find_greater_value_and_print_it.c fill_solution_tab.c
 
 
 

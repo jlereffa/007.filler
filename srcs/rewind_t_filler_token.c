@@ -6,14 +6,17 @@
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/11 10:31:31 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/08/11 10:33:38 by jlereffa         ###   ########.fr       */
+/*   Updated: 2017/08/13 10:23:54 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <filler.h>
 
-void	rewind_t_filler_token(t_filler_token **token)
+int	rewind_t_filler_token(t_filler_token **token)
 {
+	if (!token || !*token)
+		return (0);
 	while ((*token)->prev)
 		*token = (*token)->prev;
+	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/10 17:37:14 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/08/13 03:32:05 by Nerhak           ###   ########.fr       */
+/*   Updated: 2017/08/13 10:51:18 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ struct					s_filler_var
 {
 	int					is_first_loop;
 	int					is_player_one;
-	int					is_game_over;
+	//int					is_game_over;
 	char				**map;
 	int					map_height;
 	int					map_lenght;
@@ -73,11 +73,11 @@ void					init_and_reset_t_filler_var(t_filler_var *v);
 
 t_filler_token			*set_t_filler_token(
 						t_filler_token *token, int x, int y);
-void					rewind_t_filler_token(t_filler_token **token);
+int						rewind_t_filler_token(t_filler_token **token);
 t_filler_solution		*set_t_filler_solution(
 						t_filler_solution *solution, t_filler_var *v,
 						int i, int j);
-void					rewind_t_filler_solution(t_filler_solution **solution);
+int						rewind_t_filler_solution(t_filler_solution **solution);
 
 /*
 **	Parsing and acquiring from standard entry functions
@@ -103,7 +103,8 @@ int						evaluate_and_stock_solution(
 						t_filler_var *v, int i, int j);
 int						get_solutions_values(
 						t_filler_solution *solution, t_filler_var *v);
-void					find_greater_value_and_print_it(
+void					fill_solution_tab(int ***tab, t_filler_var *v);
+int						find_greater_value_and_print_it(
 						t_filler_solution *solution);
 
 /*

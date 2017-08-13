@@ -6,7 +6,7 @@
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/10 20:38:10 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/08/12 17:26:59 by jlereffa         ###   ########.fr       */
+/*   Updated: 2017/08/13 10:00:22 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ void	test_print(t_filler_var *v)
 
 	putf("is_player_one : ");
 	ft_putnbr_fd(v->is_player_one, 2);
-	putf("\nv->is_game_over : ");
-	ft_putnbr_fd(v->is_game_over, 2);
+//	putf("\nv->is_game_over : ");
+//	ft_putnbr_fd(v->is_game_over, 2);
 	putf("\nv->map_height : ");
 	ft_putnbr_fd(v->map_height, 2);
 	putf("\nv->map_lenght : ");
