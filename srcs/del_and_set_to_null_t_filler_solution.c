@@ -6,7 +6,7 @@
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/31 16:28:52 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/08/13 11:06:48 by jlereffa         ###   ########.fr       */
+/*   Updated: 2017/08/13 11:16:34 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static void	handle_false_prev_and_true_next(t_filler_solution **solution)
 	*solution = (*solution)->next;
 }
 
-void	del_and_set_to_null_t_filler_solution(
+void		del_and_set_to_null_t_filler_solution(
 		t_filler_solution **solution, int i_max)
 {
 	t_filler_solution	*tmp;

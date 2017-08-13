@@ -6,7 +6,7 @@
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/10 17:37:14 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/08/13 10:51:18 by jlereffa         ###   ########.fr       */
+/*   Updated: 2017/08/13 11:19:09 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ struct					s_filler_var
 {
 	int					is_first_loop;
 	int					is_player_one;
-	//int					is_game_over;
 	char				**map;
 	int					map_height;
 	int					map_lenght;
