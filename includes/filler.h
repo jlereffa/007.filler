@@ -6,7 +6,7 @@
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/10 17:37:14 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/08/12 17:15:44 by jlereffa         ###   ########.fr       */
+/*   Updated: 2017/08/13 03:32:05 by Nerhak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,8 @@ int						evaluate_and_stock_solution(
 						t_filler_var *v, int i, int j);
 int						get_solutions_values(
 						t_filler_solution *solution, t_filler_var *v);
+void					find_greater_value_and_print_it(
+						t_filler_solution *solution);
 
 /*
 **	Deletion Functions
