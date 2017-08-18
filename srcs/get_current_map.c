@@ -6,7 +6,7 @@
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/10 21:54:31 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/08/18 12:38:45 by jlereffa         ###   ########.fr       */
+/*   Updated: 2017/08/18 12:42:26 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int			get_current_map(t_filler_var *v)
 	while (++i < v->map_height)
 	{
 		if (!(v->map[i] = (char*)malloc(sizeof(char) * v->map_lenght + 1)) ||
-			((get_next_line(v->fd, &to_free) <= 0)))
+			((get_next_line(0, &to_free) <= 0)))
 			return (0);
 		fill_map_string_from_line(v, to_free, i);
 		free(to_free);

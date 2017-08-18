@@ -6,7 +6,7 @@
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/10 21:52:59 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/08/18 11:42:52 by jlereffa         ###   ########.fr       */
+/*   Updated: 2017/08/18 12:42:53 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	get_current_token_map_dimensions(t_filler_var *v)
 	char	*ptr;
 	char	*to_free;
 
-	if ((get_next_line(v->fd, &ptr) <= 0))
+	if ((get_next_line(0, &ptr) <= 0))
 		return (0);
 	to_free = ptr;
 	ptr += 6;
