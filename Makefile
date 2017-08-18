@@ -6,12 +6,12 @@
 #    By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/26 13:43:21 by jlereffa          #+#    #+#              #
-#    Updated: 2017/08/18 13:04:53 by jlereffa         ###   ########.fr        #
+#    Updated: 2017/08/18 13:06:53 by jlereffa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 ##PROJECT
-NAME = players/jlereffa.filler
+NAME = jlereffa.filler
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
