@@ -6,7 +6,7 @@
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/10 17:37:14 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/08/13 12:48:36 by jlereffa         ###   ########.fr       */
+/*   Updated: 2017/08/18 11:35:46 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ struct					s_filler_var
 	int					token_map_lenght;
 	t_filler_token		*token;
 	t_filler_solution	*solution;
+	int					solution_found;
 };
 
 //[DEBUG]

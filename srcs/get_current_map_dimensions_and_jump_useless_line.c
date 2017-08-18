@@ -6,7 +6,7 @@
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/10 21:53:45 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/08/13 13:49:03 by jlereffa         ###   ########.fr       */
+/*   Updated: 2017/08/18 11:41:21 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ int	get_current_map_dimensions_and_jump_useless_line(t_filler_var *v)
 
 	if (get_next_line(v->fd, &ptr) <= 0)
 		return (0);
-	//putf(ptr);//
-	//putf("\n");//
 	to_free = ptr;
 	ptr += 8;
 	v->map_height = ft_atoi(ptr);
@@ -30,8 +28,6 @@ int	get_current_map_dimensions_and_jump_useless_line(t_filler_var *v)
 	free(to_free);
 	if (get_next_line(0, &to_free) <= 0)
 		return (0);
-//	putf(to_free);//
-//	putf("\n");//
 	free(to_free);
 	return (1);
 }

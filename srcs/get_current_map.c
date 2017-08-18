@@ -6,7 +6,7 @@
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/10 21:54:31 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/08/13 13:48:48 by jlereffa         ###   ########.fr       */
+/*   Updated: 2017/08/18 11:42:47 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ static int	fill_map_string_from_line(t_filler_var *v, char *ptr, int i)
 {
 	int	j;
 
-//	putf(ptr);//
-//	putf("\n");//
 	ptr += 4;
 	j = 0;
 	while (*ptr)

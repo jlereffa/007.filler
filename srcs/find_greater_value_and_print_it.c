@@ -6,7 +6,7 @@
 /*   By: Nerhak <Nerhak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/13 03:32:29 by Nerhak            #+#    #+#             */
-/*   Updated: 2017/08/13 13:45:34 by jlereffa         ###   ########.fr       */
+/*   Updated: 2017/08/18 11:42:16 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ int	find_greater_value_and_print_it(t_filler_solution *solution)
 			ptr = solution;
 		solution = solution->next;
 	}
-	//DEB//
-	//sleep(3);//
 	ft_putnbr(ptr->x_origin);
 	write(1, " ", 1);
 	ft_putnbr(ptr->y_origin);
