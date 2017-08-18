@@ -6,7 +6,7 @@
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/10 17:36:24 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/08/18 12:41:05 by jlereffa         ###   ########.fr       */
+/*   Updated: 2017/08/18 12:41:48 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,7 @@ int	main(void)
 {
 	t_filler_var	v;
 
-	ret = 1;
 	v.is_first_loop = 1;
-	v.fd = 0;
 	if (!define_if_is_player_one(&v))
 		return (0);
 	while (1)
