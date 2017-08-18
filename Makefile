@@ -6,7 +6,7 @@
 #    By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/26 13:43:21 by jlereffa          #+#    #+#              #
-#    Updated: 2017/08/13 10:34:43 by jlereffa         ###   ########.fr        #
+#    Updated: 2017/08/18 12:40:32 by jlereffa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,6 +81,7 @@ fclean: clean
 re: fclean all
 
 norm:
+	@clear
 	@echo "\x1b[35m\n.==================[ \x1b[0m\c"
 	@echo "\x1b[35;1mNormi-Check\x1b[0m\c"
 	@echo " \x1b[35m]==================.\x1b[37;1m"

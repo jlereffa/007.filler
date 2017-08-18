@@ -6,7 +6,7 @@
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/10 21:54:31 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/08/18 11:42:47 by jlereffa         ###   ########.fr       */
+/*   Updated: 2017/08/18 12:38:45 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ static int	fill_map_string_from_line(t_filler_var *v, char *ptr, int i)
 			v->map[i][j] = '.';
 		else if (*ptr == 'O' || *ptr == 'o' || *ptr == 'X' || *ptr == 'x')
 		{
-			if ((v->is_player_one && (*ptr == 'O' || *ptr == 'o')) ||
-				(!v->is_player_one && (*ptr == 'X' || *ptr == 'x')))
+			if ((v->is_player_one == 1 && (*ptr == 'O' || *ptr == 'o')) ||
+				(v->is_player_one == 2 && (*ptr == 'X' || *ptr == 'x')))
 				v->map[i][j] = 'P';
 			else
 				v->map[i][j] = 'T';

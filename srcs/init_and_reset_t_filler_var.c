@@ -6,7 +6,7 @@
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/11 10:10:49 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/08/18 11:35:08 by jlereffa         ###   ########.fr       */
+/*   Updated: 2017/08/18 12:30:03 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,4 @@ void	init_and_reset_t_filler_var(t_filler_var *v)
 	v->token_map_lenght = 0;
 	v->token = NULL;
 	v->solution = NULL;
-	v->solution_found = 0;
 }
