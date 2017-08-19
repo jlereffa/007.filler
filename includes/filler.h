@@ -6,7 +6,7 @@
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/10 17:37:14 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/08/18 12:41:54 by jlereffa         ###   ########.fr       */
+/*   Updated: 2017/08/19 09:05:54 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ struct					s_filler_var
 	int					token_map_lenght;
 	t_filler_token		*token;
 	t_filler_solution	*solution;
+	int					x_token_origin;
+	int					y_token_origin;
 };
 
 //[DEBUG]
@@ -104,7 +106,7 @@ int						get_solutions_values(
 						t_filler_solution *solution, t_filler_var *v);
 void					fill_solution_tab(int ***tab, t_filler_var *v);
 int						find_greater_value_and_print_it(
-						t_filler_solution *solution);
+						t_filler_solution *solution, t_filler_var *v);
 
 /*
 **	Deletion Functions
