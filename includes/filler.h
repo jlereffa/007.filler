@@ -6,7 +6,7 @@
 /*   By: jlereffa <jlereffa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/10 17:37:14 by jlereffa          #+#    #+#             */
-/*   Updated: 2017/08/19 09:05:54 by jlereffa         ###   ########.fr       */
+/*   Updated: 2017/08/19 09:35:05 by jlereffa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,15 +51,6 @@ struct					s_filler_var
 	int					x_token_origin;
 	int					y_token_origin;
 };
-
-//[DEBUG]
-# define FD 2
-# define DEB de(__FILE__, __LINE__);
-
-void					de(char *file, int line);
-void					putf(char *s);
-void					test_print(t_filler_var *v);
-//[/DEBUG]
 
 /*
 **	Initialization functions
